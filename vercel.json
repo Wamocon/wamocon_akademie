@@ -1,0 +1,43 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/datenschutz",                          "destination": "/page53937561.html" },
+    { "source": "/bildungsprogramme-fr-softwaretester",  "destination": "/page54047195.html" },
+    { "source": "/ber-die-akademie",                     "destination": "/page54152991.html" },
+    { "source": "/istqb-zertifizierung",                 "destination": "/page54160721.html" },
+    { "source": "/danke",                                "destination": "/page53938027.html" },
+    { "source": "/fehler",                               "destination": "/page53938503.html" },
+    { "source": "/ditele-app",                           "destination": "/page54260389.html" },
+    { "source": "/bewertungen",                          "destination": "/page54001083.html" },
+    { "source": "/360-booster-system",                   "destination": "/page54263521.html" },
+    { "source": "/footer",                               "destination": "/page54297621.html" },
+    { "source": "/kontakt",                              "destination": "/page54299165.html" },
+    { "source": "/impressum",                            "destination": "/page54299421.html" },
+    { "source": "/Impressum",                            "destination": "/page54299421.html" },
+    { "source": "/en",                                   "destination": "/page55490499.html" },
+    { "source": "/en/educational-programs",              "destination": "/page55494043.html" },
+    { "source": "/en/about-us",                          "destination": "/page55498733.html" },
+    { "source": "/en/istqb-certification",               "destination": "/page55500201.html" },
+    { "source": "/en/ditele-app",                        "destination": "/page55502413.html" },
+    { "source": "/en/reviews",                           "destination": "/page55503825.html" },
+    { "source": "/en/360-booster-system",                "destination": "/page55504631.html" },
+    { "source": "/en/contacts",                          "destination": "/page55505933.html" },
+    { "source": "/thanks",                               "destination": "/page55507893.html" },
+    { "source": "/privacy-policy",                       "destination": "/page55508025.html" },
+    { "source": "/imprint",                              "destination": "/page55508603.html" }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}
