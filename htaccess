@@ -1,0 +1,83 @@
+ErrorDocument 403 /project10341419/page53938503.html
+ErrorDocument 404 /project10341419/page53938503.html
+
+DirectoryIndex page53427377.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/project10341419/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^datenschutz$ page53937561.html [NC]
+RewriteRule ^datenschutz/$ page53937561.html [NC]
+
+RewriteRule ^bildungsprogramme-fr-softwaretester$ page54047195.html [NC]
+RewriteRule ^bildungsprogramme-fr-softwaretester/$ page54047195.html [NC]
+
+RewriteRule ^ber-die-akademie$ page54152991.html [NC]
+RewriteRule ^ber-die-akademie/$ page54152991.html [NC]
+
+RewriteRule ^istqb-zertifizierung$ page54160721.html [NC]
+RewriteRule ^istqb-zertifizierung/$ page54160721.html [NC]
+
+RewriteRule ^danke$ page53938027.html [NC]
+RewriteRule ^danke/$ page53938027.html [NC]
+
+RewriteRule ^fehler$ page53938503.html [NC]
+RewriteRule ^fehler/$ page53938503.html [NC]
+
+RewriteRule ^ditele-app$ page54260389.html [NC]
+RewriteRule ^ditele-app/$ page54260389.html [NC]
+
+RewriteRule ^bewertungen$ page54001083.html [NC]
+RewriteRule ^bewertungen/$ page54001083.html [NC]
+
+RewriteRule ^360-booster-system$ page54263521.html [NC]
+RewriteRule ^360-booster-system/$ page54263521.html [NC]
+
+RewriteRule ^footer$ page54297621.html [NC]
+RewriteRule ^footer/$ page54297621.html [NC]
+
+RewriteRule ^kontakt$ page54299165.html [NC]
+RewriteRule ^kontakt/$ page54299165.html [NC]
+
+RewriteRule ^impressum$ page54299421.html [NC]
+RewriteRule ^impressum/$ page54299421.html [NC]
+
+RewriteRule ^en$ page55490499.html [NC]
+RewriteRule ^en/$ page55490499.html [NC]
+
+RewriteRule ^en/educational-programs$ page55494043.html [NC]
+RewriteRule ^en/educational-programs/$ page55494043.html [NC]
+
+RewriteRule ^en/about-us$ page55498733.html [NC]
+RewriteRule ^en/about-us/$ page55498733.html [NC]
+
+RewriteRule ^en/istqb-certification$ page55500201.html [NC]
+RewriteRule ^en/istqb-certification/$ page55500201.html [NC]
+
+RewriteRule ^en/ditele-app$ page55502413.html [NC]
+RewriteRule ^en/ditele-app/$ page55502413.html [NC]
+
+RewriteRule ^en/reviews$ page55503825.html [NC]
+RewriteRule ^en/reviews/$ page55503825.html [NC]
+
+RewriteRule ^en/360-booster-system$ page55504631.html [NC]
+RewriteRule ^en/360-booster-system/$ page55504631.html [NC]
+
+RewriteRule ^en/contacts$ page55505933.html [NC]
+RewriteRule ^en/contacts/$ page55505933.html [NC]
+
+RewriteRule ^thanks$ page55507893.html [NC]
+RewriteRule ^thanks/$ page55507893.html [NC]
+
+RewriteRule ^privacy-policy$ page55508025.html [NC]
+RewriteRule ^privacy-policy/$ page55508025.html [NC]
+
+RewriteRule ^imprint$ page55508603.html [NC]
+RewriteRule ^imprint/$ page55508603.html [NC]
+
+
