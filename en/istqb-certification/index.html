@@ -10,6 +10,18 @@
     </style>
   </head>
   <body>
-    <iframe src="/page55500201.html" loading="eager" referrerpolicy="no-referrer"></iframe>
-  </body>
-</html>
+    <iframe data-target="page55500201.html" src=""  loading="eager" referrerpolicy="no-referrer"></iframe>
+  <script>
+(function () {
+  var iframe = document.querySelector('iframe[data-target]');
+  if (!iframe) return;
+  var target = iframe.getAttribute('data-target');
+  var segs = (window.location.pathname || '/').split('/').filter(Boolean);
+  var repoName = 'wamocon_akademie';
+  var depth = segs.length - ((segs[0] || '') === repoName ? 1 : 0);
+  var rel = '';
+  for (var i = 0; i < depth; i++) { rel += '../'; }
+  iframe.src = rel + target;
+})();
+</script>
+</body></html>
