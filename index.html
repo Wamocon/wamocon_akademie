@@ -25,18 +25,6 @@
       Root index must behave like the original academy homepage (no overview list).
       The corresponding Tilda export is mapped to https://test-it-academy.com.
     -->
-    <iframe data-target="page53427377.html" src=""  loading="eager" referrerpolicy="no-referrer"></iframe>
-  <script>
-(function () {
-  var iframe = document.querySelector('iframe[data-target]');
-  if (!iframe) return;
-  var target = iframe.getAttribute('data-target');
-  var segs = (window.location.pathname || '/').split('/').filter(Boolean);
-  var repoName = 'wamocon_homepage';
-  var depth = segs.length - ((segs[0] || '') === repoName ? 1 : 0);
-  var rel = '';
-  for (var i = 0; i < depth; i++) { rel += '../'; }
-  iframe.src = rel + target;
-})();
-</script>
-</body></html>
+    <iframe src="page53427377.html" loading="eager" referrerpolicy="no-referrer"></iframe>
+  </body>
+</html>

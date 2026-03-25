@@ -17,7 +17,7 @@
   if (!iframe) return;
   var target = iframe.getAttribute('data-target');
   var segs = (window.location.pathname || '/').split('/').filter(Boolean);
-  var repoName = 'wamocon_homepage';
+  var repoName = 'wamocon_akademie';
   var depth = segs.length - ((segs[0] || '') === repoName ? 1 : 0);
   var rel = '';
   for (var i = 0; i < depth; i++) { rel += '../'; }
