@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script>document.documentElement.classList.add('wma-pw--js');</script>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--metatextblock-->
@@ -52,6 +53,25 @@
     </noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700"
         type="text/css" />
+    <style id="wma-global-font-css">
+        html,
+        body.t-body {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        }
+        body.t-body input,
+        body.t-body textarea,
+        body.t-body select,
+        body.t-body button {
+            font-family: inherit;
+        }
+    </style>
+    <style id="wma-hide-istqb-section">
+        #rec787588995,
+        #rec791592657,
+        #rec791598940 {
+            display: none !important;
+        }
+    </style>
     <script nomodule src="js/tilda-polyfill-1.0.min.js" charset="utf-8"></script>
     <script
         type="text/javascript">function t_onReady(func) { if (document.readyState != 'loading') { func(); } else { document.addEventListener('DOMContentLoaded', func); } }
@@ -245,7 +265,7 @@
         #recWmaProductWaves {
             position: relative;
             z-index: 1;
-            background: #000000;
+            background: transparent;
         }
 
         @keyframes wma-pw-accent-glow {
@@ -273,35 +293,113 @@
             }
         }
 
+        /* Einblendung per Transition (wie Tilda), nicht Keyframes — flüssiger Hover + Scroll */
+        html.wma-pw--js #productwellen .wma-pw__eyebrow,
+        html.wma-pw--js #productwellen .wma-pw__sectitle-line,
+        html.wma-pw--js #productwellen .wma-pw__sectitle-accent-wrap,
+        html.wma-pw--js #productwellen .wma-pw__wave-label {
+            transition:
+                opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__eyebrow,
+        html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__sectitle-line,
+        html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__sectitle-accent-wrap,
+        html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__wave-label,
+        html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__card {
+            opacity: 0;
+            transform: translate3d(0, 18px, 0);
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__eyebrow,
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__sectitle-line,
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__sectitle-accent-wrap,
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave-label,
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__card {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__eyebrow {
+            transition-delay: 0.04s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__sectitle-line {
+            transition-delay: 0.12s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__sectitle-accent-wrap {
+            transition-delay: 0.22s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(1) .wma-pw__wave-label {
+            transition-delay: 0.34s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(1) .wma-pw__row .wma-pw__card:nth-child(1) {
+            transition-delay: 0.44s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(1) .wma-pw__row .wma-pw__card:nth-child(2) {
+            transition-delay: 0.52s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(1) .wma-pw__row .wma-pw__card:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__wave-label {
+            transition-delay: 0.72s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(1) {
+            transition-delay: 0.82s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(2) {
+            transition-delay: 0.9s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(3) {
+            transition-delay: 0.98s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(4) {
+            transition-delay: 1.06s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__wave-label {
+            transition-delay: 1.16s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(1) {
+            transition-delay: 1.26s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(2) {
+            transition-delay: 1.34s;
+        }
+
         .wma-pw {
             position: relative;
             padding: 72px 24px 88px;
             font-family: 'Poppins', Arial, sans-serif;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             overflow: hidden;
             background:
-                radial-gradient(ellipse 95% 50% at 50% -15%, rgba(255, 11, 0, 0.14) 0%, transparent 50%),
-                radial-gradient(ellipse 70% 40% at 50% 105%, rgba(255, 255, 255, 0.04) 0%, transparent 55%),
+                radial-gradient(ellipse 75% 45% at 50% -15%, rgba(255, 11, 0, 0.12) 0%, transparent 52%),
+                radial-gradient(ellipse 50% 55% at 0% 40%, rgba(255, 11, 0, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse 50% 55% at 100% 40%, rgba(255, 11, 0, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse 60% 35% at 100% 100%, rgba(255, 11, 0, 0.08) 0%, transparent 50%),
                 repeating-linear-gradient(
                     -12deg,
                     transparent,
                     transparent 48px,
-                    rgba(255, 255, 255, 0.015) 48px,
-                    rgba(255, 255, 255, 0.015) 49px
+                    rgba(255, 255, 255, 0.012) 48px,
+                    rgba(255, 255, 255, 0.012) 49px
                 ),
                 #000000;
-        }
-
-        .wma-pw::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 5%, rgba(255, 11, 0, 0.45) 50%, transparent 95%);
-            pointer-events: none;
-            z-index: 0;
         }
 
         .wma-pw::after {
@@ -313,7 +411,7 @@
             width: min(92%, 720px);
             height: 160px;
             border-radius: 50%;
-            background: radial-gradient(ellipse at center, rgba(255, 11, 0, 0.07) 0%, transparent 72%);
+            background: radial-gradient(ellipse at center, rgba(255, 11, 0, 0.11) 0%, transparent 72%);
             pointer-events: none;
             z-index: 0;
         }
@@ -363,36 +461,11 @@
             text-align: center;
             margin: 0 auto 56px;
             max-width: 46rem;
-            padding: 36px 32px 40px;
-            border-radius: 4px;
-            background:
-                linear-gradient(168deg, rgba(18, 18, 18, 0.97) 0%, rgba(0, 0, 0, 0.92) 48%, rgba(12, 12, 12, 0.98) 100%) padding-box,
-                linear-gradient(125deg, #ff0b00 0%, rgba(255, 255, 255, 0.18) 42%, rgba(255, 11, 0, 0.55) 100%) border-box;
-            border: 1px solid transparent;
-            background-origin: padding-box, border-box;
-            background-clip: padding-box, border-box;
-            box-shadow:
-                0 24px 48px rgba(0, 0, 0, 0.55),
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-                0 1px 0 rgba(255, 255, 255, 0.07) inset;
-        }
-
-        .wma-pw__head::before {
-            content: "";
-            position: absolute;
-            left: 12px;
-            top: 12px;
-            bottom: 12px;
-            width: 3px;
-            border-radius: 2px;
-            background: linear-gradient(180deg, #ff0b00 0%, rgba(255, 11, 0, 0.15) 55%, transparent 100%);
-            pointer-events: none;
-        }
-
-        @media (max-width: 520px) {
-            .wma-pw__head::before {
-                display: none;
-            }
+            padding: 0 16px;
+            background: none;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .wma-pw__sectitle {
@@ -469,14 +542,17 @@
 
         .wma-pw__wave-label {
             margin: 0 0 18px;
-            padding-left: 14px;
+            padding: 6px 14px 6px 14px;
+            display: inline-block;
             border-left: 3px solid #ff0b00;
+            border-radius: 0 6px 6px 0;
             font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             text-align: left;
-            color: #ff0b00;
+            color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .wma-pw__row {
@@ -525,17 +601,18 @@
             min-height: 220px;
             padding: 0 20px 0 0;
             overflow: hidden;
-            background: linear-gradient(165deg, #101010 0%, #000000 42%, #0a0a0a 100%);
-            border: 1px solid rgba(255, 255, 255, 0.88);
-            border-radius: 3px;
+            border-radius: 6px;
             text-align: left;
-            box-shadow:
-                0 20px 44px rgba(0, 0, 0, 0.55),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            background:
+                radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 52%),
+                linear-gradient(165deg, #121212 0%, #0a0a0a 45%, #000000 100%);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
             transition:
-                border-color 0.3s ease,
-                box-shadow 0.35s ease,
-                transform 0.35s ease;
+                opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.88s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease,
+                box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .wma-pw__card::before {
@@ -543,19 +620,19 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 42%;
+            width: 40%;
             height: 1px;
-            background: linear-gradient(270deg, transparent, rgba(255, 11, 0, 0.35));
+            background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.35));
             pointer-events: none;
         }
 
         .wma-pw__card:hover {
-            border-color: rgba(255, 11, 0, 0.85);
+            border-color: rgba(255, 255, 255, 0.92);
             box-shadow:
-                0 24px 52px rgba(0, 0, 0, 0.68),
-                0 0 32px rgba(255, 11, 0, 0.14),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            transform: translateY(-3px);
+                0 22px 48px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.22);
+            transform: translate3d(0, -3px, 0);
+            transition-delay: 0s;
         }
 
         /* Nummer in eigener Spalte – nie über Text legen */
@@ -570,14 +647,15 @@
             min-width: 48px;
             min-height: 46px;
             padding: 10px 12px;
-            background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
             font-size: 14px;
             font-weight: 800;
-            color: #ff0b00;
             font-variant-numeric: tabular-nums;
             line-height: 1;
-            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.35);
+            color: #ff0b00;
+            background: #0d0d0d;
+            border: 1px solid rgba(255, 255, 255, 0.45);
             border-radius: 0 0 6px 0;
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
         }
 
         .wma-pw__card-body {
@@ -601,27 +679,42 @@
         }
 
         .wma-pw__card-cat {
-            display: block;
+            display: inline-block;
             margin: 0 0 12px;
+            padding: 0.35em 0.7em;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(180, 180, 180, 0.95);
+            color: rgba(255, 255, 255, 0.75);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .wma-pw__card-text {
             margin: 0;
             font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.68);
             font-weight: 400;
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
         }
 
         @media (prefers-reduced-motion: reduce) {
+
+            html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__eyebrow,
+            html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__sectitle-line,
+            html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__sectitle-accent-wrap,
+            html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__wave-label,
+            html.wma-pw--js #productwellen:not(.wma-pw--inview) .wma-pw__card {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
             .wma-pw__sectitle-accent {
                 animation: none;
                 filter: drop-shadow(0 0 12px rgba(255, 11, 0, 0.45));
@@ -637,9 +730,7 @@
             }
 
             .wma-pw__card:hover {
-                box-shadow:
-                    0 20px 44px rgba(0, 0, 0, 0.55),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
                 transform: none;
             }
         }
@@ -742,7 +833,7 @@
             <div id="nav785777240marker"></div>
             <div class="tmenu-mobile tmenu-mobile_positionfixed">
                 <div class="tmenu-mobile__container">
-                    <div class="tmenu-mobile__burgerlogo"> <a href="/"> <img
+                    <div class="tmenu-mobile__burgerlogo"> <a href="index.html"> <img
                                 src="images/tild3162-6531-4739-a437-653366376633__wmatransparent.png"
                                 class="tmenu-mobile__imglogo" imgfield="img" style="max-width: 220px; width: 220px;"
                                 alt="Company"> </a> </div> <button type="button"
@@ -1154,7 +1245,7 @@
                 <div class="t228__maincontainer " style="height:150px;">
                     <div class="t228__padding40px"></div>
                     <div class="t228__leftside">
-                        <div class="t228__leftcontainer"> <a href="/" class="t228__imgwrapper"> <img
+                        <div class="t228__leftcontainer"> <a href="index.html" class="t228__imgwrapper"> <img
                                     class="t228__imglogo t228__imglogomobile"
                                     src="images/tild3162-6531-4739-a437-653366376633__wmatransparent.png" imgfield="img"
                                     style="max-width: 220px; width: 220px; min-width: 220px; height: auto; display: block;"
@@ -1164,11 +1255,11 @@
                         <nav class="t228__centercontainer">
                             <ul role="list" class="t228__list t-menu__list t228__list_hidden">
                                 <li class="t228__list_item" style="padding:0 15px 0 0;"> <a class="t-menu__link-item"
-                                        href="/" data-menu-submenu-hook="" data-menu-item-number="1">
+                                        href="index.html" data-menu-submenu-hook="" data-menu-item-number="1">
                                         Startseite
                                     </a> </li>
                                 <li class="t228__list_item" style="padding:0 15px;"> <a class="t-menu__link-item"
-                                        href="/bildungsprogramme-fr-softwaretester" data-menu-submenu-hook=""
+                                        href="page54047195.html" data-menu-submenu-hook=""
                                         data-menu-item-number="2">
                                         Kurse
                                     </a> </li>
@@ -1184,15 +1275,15 @@
                                                 <ul role="list" class="t-menusub__list">
                                                     <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                             class="t-menusub__link-item t-name t-name_xs"
-                                                            href="/ber-die-akademie" data-menu-item-number="3">Über die
+                                                            href="page54152991.html" data-menu-item-number="3">Über die
                                                             Academy</a> </li>
                                                     <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                             class="t-menusub__link-item t-name t-name_xs"
-                                                            href="/360-booster-system" data-menu-item-number="3">360°
+                                                            href="page54263521.html" data-menu-item-number="3">360°
                                                             Booster System</a> </li>
                                                     <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                             class="t-menusub__link-item t-name t-name_xs"
-                                                            href="/bewertungen"
+                                                            href="page54001083.html"
                                                             data-menu-item-number="3">Bewertungen</a> </li>
                                                 </ul>
                                             </div>
@@ -1200,16 +1291,16 @@
                                     </div>
                                 </li>
                                 <li class="t228__list_item" style="padding:0 15px;"> <a class="t-menu__link-item"
-                                        href="/istqb-zertifizierung" data-menu-submenu-hook=""
+                                        href="page54160721.html" data-menu-submenu-hook=""
                                         data-menu-item-number="4">
                                         ISTQB®-Zertifizierung
                                     </a> </li>
                                 <li class="t228__list_item" style="padding:0 15px;"> <a class="t-menu__link-item"
-                                        href="/ditele-app" data-menu-submenu-hook="" data-menu-item-number="5">
+                                        href="page54260389.html" data-menu-submenu-hook="" data-menu-item-number="5">
                                         DiTeLe App
                                     </a> </li>
                                 <li class="t228__list_item" style="padding:0 0 0 15px;"> <a class="t-menu__link-item"
-                                        href="/kontakt" data-menu-submenu-hook="" data-menu-item-number="6">
+                                        href="page54299165.html" data-menu-submenu-hook="" data-menu-item-number="6">
                                         Kontakt
                                     </a> </li>
                             </ul>
@@ -1425,7 +1516,7 @@
                     <div class="t282__container__bg_opened" style="background-color:#101010;"></div>
                     <div class="t282__menu__content ">
                         <div class="t282__logo__container" style="min-height:60px;">
-                            <div class="t282__logo__content"> <a class="t282__logo" href="/"> <img
+                            <div class="t282__logo__content"> <a class="t282__logo" href="index.html"> <img
                                         class="t282__logo__img"
                                         src="images/tild6332-3064-4537-b131-666634646632__wmatransparent.png"
                                         style="height: 40px;" imgfield="img" alt="Company"> </a> </div>
@@ -1744,13 +1835,13 @@
                             <nav>
                                 <ul role="list" class="t282__menu__items t-menu__list">
                                     <li class="t282__menu__item"> <a
-                                            class="t282__menu__link t-heading t-heading_md t-menu__link-item" href="/"
+                                            class="t282__menu__link t-heading t-heading_md t-menu__link-item" href="index.html"
                                             data-menu-submenu-hook="">
                                             Startseite
                                         </a> </li>
                                     <li class="t282__menu__item"> <a
                                             class="t282__menu__link t-heading t-heading_md t-menu__link-item"
-                                            href="/bildungsprogramme-fr-softwaretester" data-menu-submenu-hook="">
+                                            href="page54047195.html" data-menu-submenu-hook="">
                                             Kurse
                                         </a> </li>
                                     <li class="t282__menu__item"> <a
@@ -1766,15 +1857,15 @@
                                                     <ul role="list" class="t-menusub__list">
                                                         <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                                 class="t-menusub__link-item t-name t-name_xs"
-                                                                href="/ber-die-akademie" data-menu-item-number="3">Über
+                                                                href="page54152991.html" data-menu-item-number="3">Über
                                                                 die Academy</a> </li>
                                                         <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                                 class="t-menusub__link-item t-name t-name_xs"
-                                                                href="/360-booster-system"
+                                                                href="page54263521.html"
                                                                 data-menu-item-number="3">360° Booster System</a> </li>
                                                         <li class="t-menusub__list-item t-name t-name_xs"> <a
                                                                 class="t-menusub__link-item t-name t-name_xs"
-                                                                href="/bewertungen"
+                                                                href="page54001083.html"
                                                                 data-menu-item-number="3">Bewertungen</a> </li>
                                                     </ul>
                                                 </div>
@@ -1783,17 +1874,17 @@
                                     </li>
                                     <li class="t282__menu__item"> <a
                                             class="t282__menu__link t-heading t-heading_md t-menu__link-item"
-                                            href="/istqb-zertifizierung" data-menu-submenu-hook="">
+                                            href="page54160721.html" data-menu-submenu-hook="">
                                             ISTQB®-Zertifizierung
                                         </a> </li>
                                     <li class="t282__menu__item"> <a
                                             class="t282__menu__link t-heading t-heading_md t-menu__link-item"
-                                            href="/ditele-app" data-menu-submenu-hook="">
+                                            href="page54260389.html" data-menu-submenu-hook="">
                                             DiTeLe App
                                         </a> </li>
                                     <li class="t282__menu__item"> <a
                                             class="t282__menu__link t-heading t-heading_md t-menu__link-item"
-                                            href="/kontakt" data-menu-submenu-hook="">
+                                            href="page54299165.html" data-menu-submenu-hook="">
                                             Kontakt
                                         </a> </li>
                                 </ul>
@@ -1961,12 +2052,12 @@
                         <ul class="t794__list" role="menu" aria-label="">
                             <li class="t794__list_item t-submenublocks__item t-name t-name_xs"> <a
                                     class="t794__typo t794__typo_803370378 t794__link t-name t-name_xs" role="menuitem"
-                                    href="/"
+                                    href="index.html"
                                     style="color:#ffffff;font-size:16px;font-weight:400;font-family:'Poppins';text-transform:uppercase;"
                                     data-menu-item-number="1">DE</a> </li>
                             <li class="t794__list_item t-submenublocks__item t-name t-name_xs"> <a
                                     class="t794__typo t794__typo_803370378 t794__link t-name t-name_xs" role="menuitem"
-                                    href="/en"
+                                    href="page55490499.html"
                                     style="color:#ffffff;font-size:16px;font-weight:400;font-family:'Poppins';text-transform:uppercase;"
                                     data-menu-item-number="2">EN</a> </li>
                         </ul>
@@ -3308,7 +3399,7 @@
                         data-field-left-res-960-value="10">
                         <h2 class='tn-atom' field='tn_text_1723632233996'>Mehr als <span
                                 style="color: rgb(255, 11, 0);">25 Jahre praktische </span><br>Erfahrung <a
-                                href="/istqb-zertifizierung#Trainer" style="color: rgb(255, 255, 255);">unserer
+                                href="page54160721.html#Trainer" style="color: rgb(255, 255, 255);">unserer
                                 Trainer</a></h2>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7857772421723632248635 t396__elem--anim-hidden'
@@ -4261,7 +4352,7 @@
                         data-field-top-res-640-value="0" data-field-left-res-640-value="10"
                         data-field-top-res-960-value="20" data-field-left-res-960-value="490"
                         data-field-width-res-960-value="492">
-                        <h2 class='tn-atom'><a href="/ber-die-akademie" style="color: inherit"><span
+                        <h2 class='tn-atom'><a href="page54152991.html" style="color: inherit"><span
                                     style="color: rgb(255, 11, 0);">Starten Sie Ihre Erfolgsgeschichte mit
                                 </span><br>der WAMOCON Academy</a></h2>
                     </div>
@@ -8792,7 +8883,7 @@
                         data-field-top-res-480-value="0" data-field-width-res-480-value="490"
                         data-field-top-res-640-value="-3" data-field-width-res-640-value="630"
                         data-field-left-res-960-value="10">
-                        <h2 class='tn-atom'><a href="/bildungsprogramme-fr-softwaretester"
+                        <h2 class='tn-atom'><a href="page54047195.html"
                                 style="color: inherit">Hauptkurse und Bildungsprogramme</a></h2>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7875813371723636800314 t396__elem--anim-hidden'
@@ -10457,7 +10548,7 @@
                         data-animate-sbs-trg="1" data-animate-sbs-trgofst="0"
                         data-animate-sbs-opts="[{'ti':0,'mx':0,'my':0,'sx':1,'sy':1,'op':1,'ro':0,'bl':'0','ea':'','dt':0},{'ti':0,'mx':0,'my':30,'sx':1,'sy':1.3,'op':0,'ro':0,'bl':'0','ea':'','dt':0},{'ti':1000,'mx':0,'my':0,'sx':1,'sy':1,'op':1,'ro':0,'bl':'0','ea':'easeOut','dt':0}]"
                         data-field-textfit-value="autoheight" data-field-left-res-640-value="10">
-                        <h2 class='tn-atom'><a href="/istqb-zertifizierung" style="color: inherit"><span
+                        <h2 class='tn-atom'><a href="page54160721.html" style="color: inherit"><span
                                     style="color: rgb(255, 11, 0);">ISTQB® Certified Tester:</span></a></h2>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7875980331723632248635 t396__elem--anim-hidden'
@@ -12006,10 +12097,10 @@
             </style>
             <div class='t396'>
                 <div class="t396__artboard" data-artboard-recid="787629104" data-artboard-screens="320,480,640,960,1200"
-                    data-artboard-height="561" data-artboard-valign="center" data-artboard-upscale="window"
-                    data-artboard-ovrflw="visible" data-artboard-height-res-320="1132"
-                    data-artboard-height-res-480="1099" data-artboard-height-res-640="745"
-                    data-artboard-height-res-960="525">
+                    data-artboard-height="630" data-artboard-valign="center" data-artboard-upscale="window"
+                    data-artboard-ovrflw="visible" data-artboard-height-res-320="1215"
+                    data-artboard-height-res-480="1180" data-artboard-height-res-640="820"
+                    data-artboard-height-res-960="595">
                     <div class="t396__carrier" data-artboard-recid="787629104"></div>
                     <div class="t396__filter" data-artboard-recid="787629104"></div>
                     <div class='t396__elem tn-elem tn-elem__7876291041723632233996 t396__elem--anim-hidden'
@@ -12311,29 +12402,30 @@
                         <div class='tn-atom' field='tn_text_1724080449111'>06</div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7876291041724080541790 t396__elem--anim-hidden'
-                        data-elem-id='1724080541790' data-elem-type='text' data-field-top-value="465"
+                        data-elem-id='1724080541790' data-elem-type='text' data-field-top-value="495"
                         data-field-left-value="20" data-field-width-value="659" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="" data-field-widthunits-value="px"
                         data-animate-mobile="y" data-animate-sbs-event="intoview" data-animate-sbs-trg="1"
                         data-animate-sbs-trgofst="0"
                         data-animate-sbs-opts="[{'ti':0,'mx':0,'my':0,'sx':1,'sy':1,'op':1,'ro':0,'bl':'0','ea':'','dt':0},{'ti':0,'mx':0,'my':30,'sx':1,'sy':1.3,'op':0,'ro':0,'bl':'0','ea':'','dt':0},{'ti':1000,'mx':0,'my':0,'sx':1,'sy':1,'op':1,'ro':0,'bl':'0','ea':'easeOut','dt':0}]"
-                        data-field-width-res-320-value="299" data-field-top-res-480-value="1003"
-                        data-field-top-res-640-value="649" data-field-width-res-640-value="479"
-                        data-field-top-res-960-value="429" data-field-left-res-960-value="10">
+                        data-field-width-res-320-value="299" data-field-top-res-320-value="1075"
+                        data-field-top-res-480-value="1078" data-field-top-res-640-value="704"
+                        data-field-width-res-640-value="479" data-field-top-res-960-value="458"
+                        data-field-left-res-960-value="10">
                         <div class='tn-atom' field='tn_text_1724080541790'>Entdecken Sie jetzt, wie diese sechs
                             entscheidenden Schritte Ihre Karriere verändern können. Melden Sie sich noch heute an!</div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7876291041724080577408' data-elem-id='1724080577408'
-                        data-elem-type='button' data-field-top-value="511" data-field-left-value="20"
+                        data-elem-type='button' data-field-top-value="572" data-field-left-value="20"
                         data-field-height-value="50" data-field-width-value="200" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="px"
-                        data-field-widthunits-value="px" data-field-top-res-320-value="1085"
+                        data-field-widthunits-value="px" data-field-top-res-320-value="1147"
                         data-field-height-res-320-value="45" data-field-width-res-320-value="140"
-                        data-field-top-res-480-value="1049" data-field-top-res-640-value="695"
-                        data-field-top-res-960-value="475" data-field-left-res-960-value="10"> <a class='tn-atom'
-                            href="/istqb-zertifizierung">Mehr über ISTQB®</a> </div>
+                        data-field-top-res-480-value="1120" data-field-top-res-640-value="780"
+                        data-field-top-res-960-value="545" data-field-left-res-960-value="10"> <a class='tn-atom'
+                            href="page54160721.html">Mehr über ISTQB®</a> </div>
                 </div>
             </div>
             <script>t_onFuncLoad('t396_initialScale', function () { t396_initialScale('787629104'); }); t_onReady(function () { t_onFuncLoad('t396_init', function () { t396_init('787629104'); }); });</script>
@@ -12451,23 +12543,46 @@
                     </div>
                 </div>
             </section>
+            <script id="wma-pw-inview-init">
+                (function () {
+                    var el = document.getElementById('productwellen');
+                    if (!el) return;
+                    function setInView(isInView) {
+                        el.classList.toggle('wma-pw--inview', !!isInView);
+                    }
+                    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        setInView(true);
+                        return;
+                    }
+                    if (!('IntersectionObserver' in window)) {
+                        setInView(true);
+                        return;
+                    }
+                    var io = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (entry) {
+                            setInView(entry.isIntersecting && entry.intersectionRatio > 0.12);
+                        });
+                    }, { rootMargin: '0px 0px -12% 0px', threshold: [0, 0.12, 0.2] });
+                    io.observe(el);
+                })();
+            </script>
         </div>
-        <div id="rec787981685" class="r t-rec t-rec_pt_120 t-rec_pt-res-480_90 t-rec_pb_0 t-rec_pb-res-480_0"
-            style="padding-top:120px;padding-bottom:0px;background-color:#222222; " data-animationappear="off"
+        <div id="rec787981685" class="r t-rec t-rec_pt_45 t-rec_pt-res-480_30 t-rec_pb_45 t-rec_pb-res-480_30"
+            style="padding-top:48px;padding-bottom:48px;background-color:#222222; " data-animationappear="off"
             data-record-type="396" data-bg-color="#222222"> <!-- T396 -->
             <style>
                 #rec787981685 .t396__artboard {
-                    height: 506px;
+                    height: 580px;
                     background-color: #222222;
                     overflow: visible;
                 }
 
                 #rec787981685 .t396__filter {
-                    height: 506px;
+                    height: 580px;
                 }
 
                 #rec787981685 .t396__carrier {
-                    height: 506px;
+                    height: 580px;
                     background-position: center center;
                     background-attachment: scroll;
                     background-size: cover;
@@ -12492,7 +12607,7 @@
                     #rec787981685 .t396__artboard,
                     #rec787981685 .t396__filter,
                     #rec787981685 .t396__carrier {
-                        height: 483px;
+                        height: 560px;
                     }
 
                     #rec787981685 .t396__filter {}
@@ -12507,7 +12622,7 @@
                     #rec787981685 .t396__artboard,
                     #rec787981685 .t396__filter,
                     #rec787981685 .t396__carrier {
-                        height: 704px;
+                        height: 700px;
                     }
 
                     #rec787981685 .t396__filter {}
@@ -12537,7 +12652,7 @@
                     top: 0px;
                     left: calc(50% - 600px + 20px);
                     width: 1160px;
-                    height: 506px;
+                    height: 580px;
                 }
 
                 #rec787981685 .tn-elem[data-elem-id="1724155314164"] .tn-atom {
@@ -12558,14 +12673,14 @@
                 @media screen and (max-width:959px) {
                     #rec787981685 .tn-elem[data-elem-id="1724155314164"] {
                         width: 620px;
-                        height: 483px;
+                        height: 560px;
                     }
                 }
 
                 @media screen and (max-width:639px) {
                     #rec787981685 .tn-elem[data-elem-id="1724155314164"] {
                         width: 460px;
-                        height: 704px;
+                        height: 700px;
                     }
                 }
 
@@ -12578,7 +12693,7 @@
 
                 #rec787981685 .tn-elem[data-elem-id="1724155146012"] {
                     z-index: 4;
-                    top: 40px;
+                    top: 20px;
                     left: calc(50% - 600px + 60px);
                     width: 520px;
                     height: 426px;
@@ -12624,68 +12739,15 @@
                     }
                 }
 
+                /* Deko 3D-Element (group_11, elem 1724155497461) – ausgeblendet */
                 #rec787981685 .tn-elem[data-elem-id="1724155497461"] {
-                    z-index: 5;
-                    top: 389px;
-                    left: calc(50% - 600px + 480px);
-                    width: 127px;
-                    height: auto;
-                }
-
-                #rec787981685 .tn-elem.t396__elem--anim-hidden[data-elem-id="1724155497461"] {
-                    opacity: 0;
-                }
-
-                #rec787981685 .tn-elem[data-elem-id="1724155497461"] .tn-atom {
-                    background-position: center center;
-                    border-color: transparent;
-                    border-style: solid;
-                }
-
-                #rec787981685 .tn-elem[data-elem-id="1724155497461"] .tn-atom {
-                    -webkit-transform: rotate(151deg);
-                    -moz-transform: rotate(151deg);
-                    transform: rotate(151deg);
-                }
-
-                #rec787981685 .tn-elem[data-elem-id="1724155497461"] .tn-atom__img {}
-
-                @media screen and (max-width:1199px) {
-                    #rec787981685 .tn-elem[data-elem-id="1724155497461"] {
-                        left: calc(50% - 480px + 320px);
-                        height: auto;
-                    }
-                }
-
-                @media screen and (max-width:959px) {
-                    #rec787981685 .tn-elem[data-elem-id="1724155497461"] {
-                        top: 393px;
-                        left: calc(50% - 320px + 512px);
-                        height: auto;
-                    }
-                }
-
-                @media screen and (max-width:639px) {
-                    #rec787981685 .tn-elem[data-elem-id="1724155497461"] {
-                        top: 628px;
-                        left: calc(50% - 240px + 410px);
-                        width: 77px;
-                        height: auto;
-                    }
-                }
-
-                @media screen and (max-width:479px) {
-                    #rec787981685 .tn-elem[data-elem-id="1724155497461"] {
-                        top: 499px;
-                        left: calc(50% - 160px + 248px);
-                        height: auto;
-                    }
+                    display: none !important;
                 }
 
                 #rec787981685 .tn-elem[data-elem-id="1723632233996"] {
                     color: #ffffff;
                     z-index: 6;
-                    top: 40px;
+                    top: 20px;
                     left: calc(50% - 600px + 620px);
                     width: 703px;
                     height: auto;
@@ -12720,7 +12782,7 @@
 
                 @media screen and (max-width:959px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632233996"] {
-                        top: 30px;
+                        top: 18px;
                         left: calc(50% - 320px + 40px);
                         height: auto;
                     }
@@ -12735,7 +12797,7 @@
 
                 @media screen and (max-width:479px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632233996"] {
-                        top: 20px;
+                        top: 16px;
                         left: calc(50% - 160px + 30px);
                         width: 254px;
                         height: auto;
@@ -12750,7 +12812,7 @@
                 #rec787981685 .tn-elem[data-elem-id="1723632248635"] {
                     color: #ffffff;
                     z-index: 7;
-                    top: 108px;
+                    top: 88px;
                     left: calc(50% - 600px + 620px);
                     width: 496px;
                     height: auto;
@@ -12773,7 +12835,7 @@
 
                 @media screen and (max-width:1199px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632248635"] {
-                        top: 102px;
+                        top: 82px;
                         left: calc(50% - 480px + 450px);
                         height: auto;
                     }
@@ -12781,7 +12843,7 @@
 
                 @media screen and (max-width:959px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632248635"] {
-                        top: 82px;
+                        top: 66px;
                         left: calc(50% - 320px + 40px);
                         height: auto;
                     }
@@ -12789,7 +12851,7 @@
 
                 @media screen and (max-width:639px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632248635"] {
-                        top: 76px;
+                        top: 60px;
                         width: 419px;
                         height: auto;
                     }
@@ -12797,7 +12859,7 @@
 
                 @media screen and (max-width:479px) {
                     #rec787981685 .tn-elem[data-elem-id="1723632248635"] {
-                        top: 60px;
+                        top: 48px;
                         left: calc(50% - 160px + 30px);
                         width: 260px;
                         height: auto;
@@ -12811,7 +12873,7 @@
 
                 #rec787981685 .tn-elem[data-elem-id="1724154836182"] {
                     z-index: 8;
-                    top: 191px;
+                    top: 171px;
                     left: calc(50% - 600px + 620px);
                     width: 460px;
                     height: auto;
@@ -12825,7 +12887,7 @@
 
                 @media screen and (max-width:1199px) {
                     #rec787981685 .tn-elem[data-elem-id="1724154836182"] {
-                        top: 185px;
+                        top: 165px;
                         left: calc(50% - 480px + 450px);
                         height: auto;
                     }
@@ -12833,7 +12895,7 @@
 
                 @media screen and (max-width:959px) {
                     #rec787981685 .tn-elem[data-elem-id="1724154836182"] {
-                        top: 165px;
+                        top: 145px;
                         left: calc(50% - 320px + 40px);
                         height: auto;
                     }
@@ -12841,7 +12903,7 @@
 
                 @media screen and (max-width:639px) {
                     #rec787981685 .tn-elem[data-elem-id="1724154836182"] {
-                        top: 159px;
+                        top: 139px;
                         width: min(460px, calc(100vw - 60px));
                         height: auto;
                     }
@@ -12849,7 +12911,7 @@
 
                 @media screen and (max-width:479px) {
                     #rec787981685 .tn-elem[data-elem-id="1724154836182"] {
-                        top: 152px;
+                        top: 132px;
                         left: calc(50% - 160px + 30px);
                         width: 260px;
                         height: auto;
@@ -12938,14 +13000,41 @@
                 }
 
                 #rec787981685 .t-form .t-form__submit {
-                    margin-top: 8px !important;
+                    margin-top: 22px !important;
+                    position: relative;
+                    z-index: 3;
+                    text-align: left;
                 }
 
                 #rec787981685 .t-form .t-submit {
-                    width: 100% !important;
-                    max-width: min(340px, 68%);
+                    width: auto !important;
+                    min-width: 0;
+                    max-width: 260px;
+                    padding-left: 28px;
+                    padding-right: 28px;
+                    height: 44px;
+                    line-height: 44px;
                     box-sizing: border-box;
                     border-radius: 50px !important;
+                }
+
+                #rec787981685 .t-form .t-submit::-webkit-credentials-auto-fill-button {
+                    display: none !important;
+                    visibility: hidden !important;
+                    pointer-events: none !important;
+                    width: 0 !important;
+                    height: 0 !important;
+                    margin: 0 !important;
+                    opacity: 0 !important;
+                }
+
+                /* ANNEXX „skewed slide“: weiße Zwischenlage (2. div) wirkte wie Pfeil Richtung Text */
+                #rec787981685 .t-form .t-submit.b03_skewed_slide_in2qjAbhp8 {
+                    overflow: visible !important;
+                }
+
+                #rec787981685 .t-form .t-submit.b03_skewed_slide_in2qjAbhp8 > div:nth-child(2) {
+                    display: none !important;
                 }
 
                 #rec787981685 .t-form input::placeholder,
@@ -12981,12 +13070,12 @@
                     overflow: hidden;
                 }
 
-                /* Weiße Felder + Button schmaler (~65 % der Spalte), Checkbox-Text volle Breite */
+                /* Weiße Felder ueber volle Formularbreite */
                 #rec787981685 .t-form .t-input-group_nm .t-input-block,
                 #rec787981685 .t-form .t-input-group_ph .t-input-block,
                 #rec787981685 .t-form .t-input-group_em .t-input-block {
                     width: 100% !important;
-                    max-width: min(340px, 68%);
+                    max-width: 100%;
                     box-sizing: border-box;
                 }
 
@@ -13004,13 +13093,28 @@
                     box-sizing: border-box;
                 }
 
+                #rec787981685 .t-form .t-input-group_cb .t-checkbox__labeltext {
+                    color: #6b6b6b;
+                    font-size: 12px;
+                    line-height: 1.45;
+                }
+
+                #rec787981685 .t-form .t-input-group_cb {
+                    position: relative;
+                    z-index: 1;
+                    margin-bottom: 4px;
+                }
+
                 @media screen and (max-width: 479px) {
 
                     #rec787981685 .t-form .t-input-group_nm .t-input-block,
                     #rec787981685 .t-form .t-input-group_ph .t-input-block,
-                    #rec787981685 .t-form .t-input-group_em .t-input-block,
-                    #rec787981685 .t-form .t-submit {
+                    #rec787981685 .t-form .t-input-group_em .t-input-block {
                         max-width: 100% !important;
+                    }
+
+                    #rec787981685 .t-form .t-submit {
+                        max-width: min(260px, 100%) !important;
                     }
                 }
 
@@ -13034,25 +13138,25 @@
             </style>
             <div class='t396'>
                 <div class="t396__artboard" data-artboard-recid="787981685" data-artboard-screens="320,480,640,960,1200"
-                    data-artboard-height="506" data-artboard-valign="center" data-artboard-upscale="window"
-                    data-artboard-ovrflw="visible" data-artboard-height-res-320="660" data-artboard-height-res-480="704"
-                    data-artboard-height-res-640="483">
+                    data-artboard-height="580" data-artboard-valign="center" data-artboard-upscale="window"
+                    data-artboard-ovrflw="visible" data-artboard-height-res-320="660" data-artboard-height-res-480="700"
+                    data-artboard-height-res-640="560">
                     <div class="t396__carrier" data-artboard-recid="787981685"></div>
                     <div class="t396__filter" data-artboard-recid="787981685"></div>
                     <div class='t396__elem tn-elem tn-elem__7879816851724155314164' data-elem-id='1724155314164'
                         data-elem-type='shape' data-field-top-value="0" data-field-left-value="20"
-                        data-field-height-value="506" data-field-width-value="1160" data-field-axisy-value="top"
+                        data-field-height-value="580" data-field-width-value="1160" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="px"
                         data-field-widthunits-value="px" data-field-height-res-320-value="660"
-                        data-field-width-res-320-value="300" data-field-height-res-480-value="704"
-                        data-field-width-res-480-value="460" data-field-height-res-640-value="483"
+                        data-field-width-res-320-value="300" data-field-height-res-480-value="700"
+                        data-field-width-res-480-value="460" data-field-height-res-640-value="560"
                         data-field-width-res-640-value="620" data-field-left-res-960-value="10"
                         data-field-width-res-960-value="940">
                         <div class='tn-atom'> </div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7879816851724155146012' data-elem-id='1724155146012'
-                        data-elem-type='shape' data-field-top-value="40" data-field-left-value="60"
+                        data-elem-type='shape' data-field-top-value="20" data-field-left-value="60"
                         data-field-height-value="426" data-field-width-value="520" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="px"
@@ -13067,7 +13171,7 @@
                             aria-label='' role="img"> </div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7879816851724155497461 ' data-elem-id='1724155497461'
-                        data-elem-type='image' data-field-top-value="389" data-field-left-value="480"
+                        data-elem-type='image' data-field-top-value="369" data-field-left-value="480"
                         data-field-width-value="127" data-field-axisy-value="top" data-field-axisx-value="left"
                         data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="" data-field-widthunits-value="px" data-animate-mobile="y"
@@ -13084,7 +13188,7 @@
                                 imgfield='tn_img_1724155497461' /> </div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7879816851723632233996 t396__elem--anim-hidden'
-                        data-elem-id='1723632233996' data-elem-type='text' data-field-top-value="40"
+                        data-elem-id='1723632233996' data-elem-type='text' data-field-top-value="20"
                         data-field-left-value="620" data-field-width-value="703" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="" data-field-widthunits-value="px"
@@ -13097,7 +13201,7 @@
                         <h2 class='tn-atom' field='tn_text_1723632233996'>Beratung erhalten</h2>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7879816851723632248635 t396__elem--anim-hidden'
-                        data-elem-id='1723632248635' data-elem-type='text' data-field-top-value="108"
+                        data-elem-id='1723632248635' data-elem-type='text' data-field-top-value="88"
                         data-field-left-value="620" data-field-width-value="496" data-field-axisy-value="top"
                         data-field-axisx-value="left" data-field-container-value="grid" data-field-topunits-value="px"
                         data-field-leftunits-value="px" data-field-heightunits-value="" data-field-widthunits-value="px"
@@ -13114,7 +13218,7 @@
                             Ihre Kontaktdaten, damit wir Sie erreichen und Ihre Fragen beantworten können.</div>
                     </div>
                     <div class='t396__elem tn-elem tn-elem__7879816851724154836182' data-elem-id='1724154836182'
-                        data-elem-type='form' data-field-top-value="191" data-field-left-value="620"
+                        data-elem-type='form' data-field-top-value="171" data-field-left-value="620"
                         data-field-width-value="460" data-field-axisy-value="top" data-field-axisx-value="left"
                         data-field-container-value="grid" data-field-topunits-value="px" data-field-leftunits-value="px"
                         data-field-heightunits-value="" data-field-widthunits-value="px"
@@ -13133,12 +13237,12 @@
                         data-field-inputtitlemargbottom-value="5" data-field-inputelscolor-value="#717171"
                         data-field-inputelsfontweight-value="400" data-field-inputelsfontsize-value="12"
                         data-field-buttontitle-value="Anfrage senden " data-field-buttoncolor-value="#ffffff"
-                        data-field-buttonbgcolor-value="#ff0b00" data-field-buttonradius-value="50"
-                        data-field-buttonwidth-value="460" data-field-buttonheight-value="48"
+                        data-field-buttonbgcolor-value="#ff0b00"                         data-field-buttonradius-value="50"
+                        data-field-buttonwidth-value="260" data-field-buttonheight-value="44"
                         data-field-buttonfontfamily-value="Poppins" data-field-buttonfontsize-value="14"
-                        data-field-buttonfontweight-value="600" data-field-formmsgurl-value="/danke"
+                        data-field-buttonfontweight-value="600" data-field-formmsgurl-value="page53938027.html"
                         data-field-receivers-value="32a605933d1f9db235fd98591e33a4e2,5c80a98c47c7c386a8f58cea0350e5d5,0bf4d2e1d8ba167b14762f0838ec8b2a"
-                        data-field-buttonwidth-res-320-value="140">
+                        data-field-buttonwidth-res-320-value="240">
                         <div class='tn-atom tn-atom__form'></div> <!--googleoff: all--> <!--noindex-->
                         <div data-nosnippet="true" class="tn-atom__inputs-wrapp" style="display:none;"> <textarea
                                 class="tn-atom__inputs-textarea">[{"lid":"1724154836183","ls":"10","loff":"","li_type":"nm","li_name":"name","li_ph":"Ihr Name","li_req":"y","li_nm":"name"},{"lid":"1724154861106","ls":"20","loff":"","li_type":"ph","li_name":"phone","li_ph":"Telefon","li_req":"y","li_nm":"phone"},{"lid":"1724154875929","ls":"30","loff":"","li_type":"em","li_name":"email","li_ph":"E-Mail","li_req":"y","li_nm":"email"},{"lid":"1724154946056","ls":"40","loff":"","li_type":"cb","li_req":"y","li_label":"Hiermit best\u00e4tige ich, dass ich die <a href=\"\/datenschutz\" target=\"_blank\" rel=\"noreferrer noopener\" style=\"color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;\">Datenschutzerkl\u00e4rung<\/a> gelesen habe und damit einverstanden bin, dass die WAMOCON GmbH meine Daten, einschlie\u00dflich personenbezogener Daten, speichern und verarbeiten darf.","li_checked":"y","li_nm":"Checkbox"}]</textarea>
@@ -14245,7 +14349,7 @@
                         data-field-textfit-value="autoheight" data-field-top-res-320-value="401"
                         data-field-top-res-480-value="411" data-field-top-res-960-value="417"
                         data-field-left-res-960-value="10">
-                        <div class='tn-atom' field='tn_text_1726050687913'><a href="/Impressum"
+                        <div class='tn-atom' field='tn_text_1726050687913'><a href="page54299421.html"
                                 style="color: rgb(255, 255, 255); border-bottom: 1px solid rgb(255, 11, 0); box-shadow: none; text-decoration: none;"
                                 target="_blank" rel="noreferrer noopener">Impressum</a></div>
                     </div>
@@ -14391,20 +14495,20 @@
             data-record-type="420" data-bg-color="#101010"> <!-- T420 -->
             <div class="t420">
                 <div class="t-container t-align_left">
-                    <div class="t420__col t-col t-col_3"> <a class="t420__logo-link" href="/"> <img
+                    <div class="t420__col t-col t-col_3"> <a class="t420__logo-link" href="index.html"> <img
                                 class="t420__logo t-img"
                                 src="images/tild3332-6361-4037-b230-633562663766__group_319.svg" imgfield="img"
                                 style="max-width: 80px;" alt=""> </a>
-                        <div class="t420__text t-descr t-descr_xxs" field="text">© 2024 WAMOCON Academy GmbH. <br />Alle
+                        <div class="t420__text t-descr t-descr_xxs" field="text">© 2026 WAMOCON Academy GmbH. <br />Alle
                             Rechte vorbehalten.</div>
                     </div>
                     <div class="t420__col t-col t-col_3">
                         <div class="t420__descr t-descr t-descr_xxs" field="descr">
                             <ul>
-                                <li data-list="bullet"><a href="/">Startseite</a></li>
-                                <li data-list="bullet"><a href="/bildungsprogramme-fr-softwaretester">Kurse</a></li>
-                                <li data-list="bullet"><a href="/istqb-zertifizierung">ISTQB®-Zertifizierung</a></li>
-                                <li data-list="bullet"><a href="/ditele-app">DiTeLe App</a></li>
+                                <li data-list="bullet"><a href="index.html">Startseite</a></li>
+                                <li data-list="bullet"><a href="page54047195.html">Kurse</a></li>
+                                <li data-list="bullet"><a href="page54160721.html">ISTQB®-Zertifizierung</a></li>
+                                <li data-list="bullet"><a href="page54260389.html">DiTeLe App</a></li>
                             </ul>
                         </div>
                     </div>
@@ -14413,18 +14517,18 @@
                         <div class="t420__col t-col t-col_3">
                             <div class="t420__descr t-descr t-descr_xxs" field="descr2">
                                 <ul>
-                                    <li data-list="bullet"><a href="/ber-die-akademie">Über die Academy</a></li>
-                                    <li data-list="bullet"><a href="/360-booster-system">360° Booster System</a></li>
-                                    <li data-list="bullet"><a href="/bewertungen">Bewertungen</a></li>
+                                    <li data-list="bullet"><a href="page54152991.html">Über die Academy</a></li>
+                                    <li data-list="bullet"><a href="page54263521.html">360° Booster System</a></li>
+                                    <li data-list="bullet"><a href="page54001083.html">Bewertungen</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="t420__col t-col t-col_3">
                             <div class="t420__descr t-descr t-descr_xxs" field="descr3">
                                 <ul>
-                                    <li data-list="bullet"><a href="/datenschutz" target="_blank"
+                                    <li data-list="bullet"><a href="page53937561.html" target="_blank"
                                             rel="noreferrer noopener">Datenschutz</a></li>
-                                    <li data-list="bullet"><a href="/Impressum" target="_blank"
+                                    <li data-list="bullet"><a href="page54299421.html" target="_blank"
                                             rel="noreferrer noopener">Impressum</a></li>
                                 </ul>
                             </div>
@@ -14547,9 +14651,9 @@
             <div class="t123">
                 <div class="t-container_100 ">
                     <div class="t-width t-width_100 "> <!-- nominify begin -->
-                        <!--!ANNEXX!--><!--!ANX000-5!--!><!--![{"id":"","data":""},{"id":"random","data":"2qjAbhp8"},{"id":"anxcommentblock","data":""},{"id":"1","data":"#rec785777240 .t-btn.t-btn_md, .tn-elem__7857772411723558879441, .tn-elem__7915989401724075999222, .tn-elem__7876291041724080577408, .tn-elem__7879816851724154836182 button.t-submit"},{"id":"exclude","data":""},{"id":"fontbutton","data":"Poppins"},{"id":"2","data":"rgba(255, 255, 255, 1)"},{"id":"3","data":"rgba(0, 0, 0, 1)"}]!-->
+                        <!--!ANNEXX!--><!--!ANX000-5!--!><!--![{"id":"","data":""},{"id":"random","data":"2qjAbhp8"},{"id":"anxcommentblock","data":""},{"id":"1","data":"#rec785777240 .t-btn.t-btn_md, .tn-elem__7857772411723558879441, .tn-elem__7915989401724075999222, .tn-elem__7876291041724080577408"},{"id":"exclude","data":""},{"id":"fontbutton","data":"Poppins"},{"id":"2","data":"rgba(255, 255, 255, 1)"},{"id":"3","data":"rgba(0, 0, 0, 1)"}]!-->
                         <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-                        <script>(function () { let int = setInterval(function () { if (typeof t657_init === "function") { clearInterval(int); t657_init = function (recid) { var rec = document.querySelector('#rec' + recid); if (!rec) return; var wrapperBlock = rec.querySelector('.t657'); var closeButton = rec.querySelector('.t657__btn'); var closeIcon = rec.querySelector('.t657__icon-close'); var closeSvg = rec.querySelector('.t657__icon-close svg'); var storageItem = wrapperBlock.getAttribute('data-storage-item'); var lastOpen; try { lastOpen = localStorage.getItem(storageItem) } catch (error) { console.log('Your web browser does not support localStorage. Error status: ', error) } if (!lastOpen) { wrapperBlock.classList.remove('t657_closed') } wrapperBlock.addEventListener('click', function (event) { if (event.target === closeButton || event.target === closeIcon || event.target === closeSvg || event.target.closest(".t657__btn") === closeButton) { wrapperBlock.classList.add('t657_closed'); try { localStorage.setItem(storageItem, Math.floor(Date.now() / 1000)) } catch (error) { console.log('Your web browser does not support localStorage. Error status: ', error) } event.preventDefault() } }) } } }, 100); setTimeout(function () { clearInterval(int); }, 3e3); let selector = "#rec785777240 .t-btn.t-btn_md, .tn-elem__7857772411723558879441, .tn-elem__7915989401724075999222, .tn-elem__7876291041724080577408, .tn-elem__7879816851724154836182 button.t-submit", newClass = "b03_skewed_slide_in2qjAbhp8"; addClass(); $(document).ready(function () { setTimeout(function () { addClass(); if ($(".t-store__grid-cont-preloader_hidden, .js-store-load-more-btn").length) { $(".t-store__grid-cont-preloader_hidden, .js-store-load-more-btn").each(function (i, item) { const config = { attributes: true }; const callback = function (mutationsList, observer) { for (let mutation of mutationsList) { let i = 5, int = setInterval(function () { i--; setTimeout(addClass, 1000); if (!i) clearInterval(int); }, 1e3); observer.disconnect(); } }; const observer = new MutationObserver(callback); observer.observe(item, config); }) } if (/button.t-submit/.test(selector)) { let int = setInterval(function () { if ($(selector).closest('form').length) { clearInterval(int); setTimeout(addClass, 1000); } }, 500); } $(".t-store").on("click", ".t-store__pagination", function () { let int = setInterval(addClass, 1e3); setTimeout(function () { clearInterval(int); }, 3e3); }); }, 1e3); }); function addClass() { $(selector).not('').filter(function (i, elem) { if ($(elem).hasClass(newClass) || $(elem).find('.annexx-modified-button').length || $(elem).find("." + newClass).length) { return false; } else { return true; } }).each(function (i, elem) { if ($(elem).find(".tn-atom").length) { elem = $(elem).find(".tn-atom"); } $(elem).addClass(newClass + ' annexx-modified-button'); let text = $(elem).text(); $(elem).empty(); $(elem).append("<div>" + text + "</div><div></div><div>" + text + "</div>"); }) } }());</script>
+                        <script>(function () { let int = setInterval(function () { if (typeof t657_init === "function") { clearInterval(int); t657_init = function (recid) { var rec = document.querySelector('#rec' + recid); if (!rec) return; var wrapperBlock = rec.querySelector('.t657'); var closeButton = rec.querySelector('.t657__btn'); var closeIcon = rec.querySelector('.t657__icon-close'); var closeSvg = rec.querySelector('.t657__icon-close svg'); var storageItem = wrapperBlock.getAttribute('data-storage-item'); var lastOpen; try { lastOpen = localStorage.getItem(storageItem) } catch (error) { console.log('Your web browser does not support localStorage. Error status: ', error) } if (!lastOpen) { wrapperBlock.classList.remove('t657_closed') } wrapperBlock.addEventListener('click', function (event) { if (event.target === closeButton || event.target === closeIcon || event.target === closeSvg || event.target.closest(".t657__btn") === closeButton) { wrapperBlock.classList.add('t657_closed'); try { localStorage.setItem(storageItem, Math.floor(Date.now() / 1000)) } catch (error) { console.log('Your web browser does not support localStorage. Error status: ', error) } event.preventDefault() } }) } } }, 100); setTimeout(function () { clearInterval(int); }, 3e3); let selector = "#rec785777240 .t-btn.t-btn_md, .tn-elem__7857772411723558879441, .tn-elem__7915989401724075999222, .tn-elem__7876291041724080577408", newClass = "b03_skewed_slide_in2qjAbhp8"; addClass(); $(document).ready(function () { setTimeout(function () { addClass(); if ($(".t-store__grid-cont-preloader_hidden, .js-store-load-more-btn").length) { $(".t-store__grid-cont-preloader_hidden, .js-store-load-more-btn").each(function (i, item) { const config = { attributes: true }; const callback = function (mutationsList, observer) { for (let mutation of mutationsList) { let i = 5, int = setInterval(function () { i--; setTimeout(addClass, 1000); if (!i) clearInterval(int); }, 1e3); observer.disconnect(); } }; const observer = new MutationObserver(callback); observer.observe(item, config); }) } if (/button.t-submit/.test(selector)) { let int = setInterval(function () { if ($(selector).closest('form').length) { clearInterval(int); setTimeout(addClass, 1000); } }, 500); } $(".t-store").on("click", ".t-store__pagination", function () { let int = setInterval(addClass, 1e3); setTimeout(function () { clearInterval(int); }, 3e3); }); }, 1e3); }); function addClass() { $(selector).not('').filter(function (i, elem) { if ($(elem).hasClass(newClass) || $(elem).find('.annexx-modified-button').length || $(elem).find("." + newClass).length) { return false; } else { return true; } }).each(function (i, elem) { if ($(elem).find(".tn-atom").length) { elem = $(elem).find(".tn-atom"); } $(elem).addClass(newClass + ' annexx-modified-button'); let text = $(elem).text(); $(elem).empty(); $(elem).append("<div>" + text + "</div><div></div><div>" + text + "</div>"); }) } }());</script>
                         <style>
                             /* Next, add the button style itself */
                             .b03_skewed_slide_in2qjAbhp8 {
@@ -14658,13 +14762,9 @@
                             <div class="t390__wrapper t-align_left">
                                 <div class="t390__title t-heading t-heading_lg" id="popuptitle_793356594">Termine im
                                     überblick</div>
-                                <div class="t390__descr t-descr t-descr_xs"><strong>November 2024</strong><br />-
-                                    Donnerstag, 07. November 2024<br />- Freitag, 08. November 2024<br />- Samstag, 09.
-                                    November 2024<br />- Donnerstag, 14. November 2024<br />- Freitag, 15. November
-                                    2024<br />- Samstag, 16. November 2024<br /><br /><strong>Dezember
-                                        2024</strong><br />- Donnerstag, 05. Dezember 2024<br />- Freitag, 06. Dezember
-                                    2024<br />- Samstag, 07. Dezember 2024<br />- Donnerstag, 12. Dezember 2024<br />-
-                                    Freitag, 13. Dezember 2024<br />- Samstag, 14. Dezember 2024</div>
+                                <div class="t390__descr t-descr t-descr_xs"><strong>Januar 2025</strong><br />-
+                                    Donnerstag, 30. Januar 2025<br />- Freitag, 31. Januar 2025<br />- Samstag, 01.
+                                    Februar 2025</div>
                             </div>
                         </div>
                     </div>
@@ -14744,13 +14844,9 @@
                             <div class="t390__wrapper t-align_left">
                                 <div class="t390__title t-heading t-heading_lg" id="popuptitle_803487336">Dates at a
                                     glance</div>
-                                <div class="t390__descr t-descr t-descr_xs"><strong>November 2024</strong><br />-
-                                    Thursday, November 07, 2024<br />- Friday, November 08, 2024<br />- Saturday,
-                                    November 09, 2024<br />- Thursday, November 14, 2024<br />- Friday, November 15,
-                                    2024<br />- Saturday, November 16, 2024<br /><br /><strong>December
-                                        2024</strong><br />- Thursday, December 05, 2024<br />- Friday, December 06,
-                                    2024<br />- Saturday, December 07, 2024<br />- Thursday, December 12, 2024<br />-
-                                    Friday, December 13, 2024<br />- Saturday, December 14, 2024</div>
+                                <div class="t390__descr t-descr t-descr_xs"><strong>January 2025</strong><br />-
+                                    Thursday, January 30, 2025<br />- Friday, January 31, 2025<br />- Saturday,
+                                    February 01, 2025</div>
                             </div>
                         </div>
                     </div>
@@ -14844,7 +14940,7 @@
                                         Fragen beantworten können.</div>
                                 </div>
                                 <form id="form793356595" name='form793356595' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/danke"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page53938027.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -14902,7 +14998,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">Hiermit bestätige
-                                                                ich, dass ich die </span><a href="/datenschutz"
+                                                                ich, dass ich die </span><a href="page53937561.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">Datenschutzerklärung</a><span
                                                                 style="color: rgb(113, 113, 113);"> gelesen habe und
@@ -15092,7 +15188,7 @@
                                         questions.</div>
                                 </div>
                                 <form id="form803487912" name='form803487912' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/thanks"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page55507893.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -15150,7 +15246,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">I hereby confirm that
-                                                                I have read the </span><a href="/privacy-policy"
+                                                                I have read the </span><a href="page55508025.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">privacy
                                                                 policy</a><span style="color: rgb(113, 113, 113);"> and
@@ -15336,7 +15432,7 @@
                                         Anmeldung</div>
                                 </div>
                                 <form id="form793366467" name='form793366467' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/danke"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page53938027.html"
                                     class="t-form js-form-proccess t-form_inputs-total_3 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -15382,7 +15478,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">Hiermit bestätige
-                                                                ich, dass ich die </span><a href="/datenschutz"
+                                                                ich, dass ich die </span><a href="page53937561.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">Datenschutzerklärung</a><span
                                                                 style="color: rgb(113, 113, 113);"> gelesen habe und
@@ -15569,7 +15665,7 @@
                                         registration</div>
                                 </div>
                                 <form id="form803490984" name='form803490984' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/thanks"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page55507893.html"
                                     class="t-form js-form-proccess t-form_inputs-total_3 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -15615,7 +15711,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">I hereby confirm that
-                                                                I have read the </span><a href="/privacy-policy"
+                                                                I have read the </span><a href="page55508025.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">privacy
                                                                 policy</a><span style="color: rgb(113, 113, 113);"> and
@@ -15801,7 +15897,7 @@
                                         Ihre Bewertung</div>
                                 </div>
                                 <form id="form793367094" name='form793367094' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/danke"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page53938027.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -15859,7 +15955,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">Hiermit bestätige
-                                                                ich, dass ich die </span><a href="/datenschutz"
+                                                                ich, dass ich die </span><a href="page53937561.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">Datenschutzerklärung</a><span
                                                                 style="color: rgb(113, 113, 113);"> gelesen habe und
@@ -16046,7 +16142,7 @@
                                         evaluation</div>
                                 </div>
                                 <form id="form803491844" name='form803491844' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/thanks"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page55507893.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="32a605933d1f9db235fd98591e33a4e2" class="js-formaction-services"> <input
@@ -16106,7 +16202,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">I hereby confirm that
-                                                                I have read the </span><a href="/privacy-policy"
+                                                                I have read the </span><a href="page55508025.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">privacy
                                                                 policy</a><span style="color: rgb(113, 113, 113);"> and
@@ -16292,7 +16388,7 @@
                                         stellen</div>
                                 </div>
                                 <form id="form802365132" name='form802365132' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/danke"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page53938027.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -16350,7 +16446,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">Hiermit bestätige
-                                                                ich, dass ich die </span><a href="/datenschutz"
+                                                                ich, dass ich die </span><a href="page53937561.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">Datenschutzerklärung</a><span
                                                                 style="color: rgb(113, 113, 113);"> gelesen habe und
@@ -16537,7 +16633,7 @@
                                         question</div>
                                 </div>
                                 <form id="form803492750" name='form803492750' role="form" action='' method='POST' autocomplete="off"
-                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="/thanks"
+                                    data-formactiontype="2" data-inputbox=".t-input-group" data-success-url="page55507893.html"
                                     class="t-form js-form-proccess t-form_inputs-total_4 "
                                     data-success-callback="t702_onSuccess"> <input type="hidden" name="formservices[]"
                                         value="0bf4d2e1d8ba167b14762f0838ec8b2a" class="js-formaction-services"> <input
@@ -16595,7 +16691,7 @@
                                                         <div style="font-size: 14px; line-height: 20px;"
                                                             data-customstyle="yes"><span
                                                                 style="color: rgb(113, 113, 113);">I hereby confirm that
-                                                                I have read the </span><a href="/privacy-policy"
+                                                                I have read the </span><a href="page55508025.html"
                                                                 target="_blank" rel="noreferrer noopener"
                                                                 style="color: rgb(113, 113, 113); border-bottom: 1px solid rgb(113, 113, 113); box-shadow: none; text-decoration: none;">privacy
                                                                 policy</a><span style="color: rgb(113, 113, 113);"> and
@@ -21732,7 +21828,7 @@
                     }
                 </style>
             </div>
-        </footer> <!--/footer-->
+        </page54297621.html> <!--/footer-->
     </div> <!--/allrecords--> <!-- Stat --> <!-- Yandex.Metrika counter 99131843 -->
     <script type="text/javascript"
         data-tilda-cookie-type="analytics">setTimeout(function () { (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); window.mainMetrikaId = '99131843'; ym(window.mainMetrikaId, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true, ecommerce: "dataLayer" }); }, 2000);</script>
