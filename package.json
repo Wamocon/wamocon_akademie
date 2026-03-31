@@ -2,6 +2,6 @@
   "name": "wamocon-akademie",
   "private": true,
   "scripts": {
-    "dev": "python3 -m http.server 3000"
+    "dev": "bash scripts/dev.sh"
   }
 }

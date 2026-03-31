@@ -65,6 +65,77 @@
             font-family: inherit;
         }
     </style>
+    <style id="wma-app-frame-css">
+        :root {
+            --wma-frame-base: #000000;
+            --wma-frame-overlay: linear-gradient(
+                180deg,
+                rgba(55, 12, 22, 0.55) 0%,
+                rgba(12, 4, 8, 0.5) 38%,
+                rgba(0, 0, 0, 0.72) 72%,
+                #000000 100%
+            );
+            --wma-frame-radial: radial-gradient(ellipse 85% 55% at 65% 18%, rgba(90, 22, 32, 0.35) 0%, transparent 58%);
+            --wma-frame-img: url('images/wma-pw-section-bg.png');
+            --wma-frame-blur: 14px;
+        }
+
+        @keyframes wma-frame-bg-drift {
+            0% {
+                transform: translate3d(-2.2%, -1.6%, 0);
+            }
+
+            100% {
+                transform: translate3d(2.2%, 1.6%, 0);
+            }
+        }
+
+        html {
+            min-height: 100%;
+            background-color: var(--wma-frame-base);
+            overflow-x: hidden;
+        }
+
+        body.t-body {
+            position: relative;
+            isolation: isolate;
+            min-height: 100vh;
+            background-color: var(--wma-frame-base);
+        }
+
+        body.t-body::before {
+            content: "";
+            position: fixed;
+            z-index: 0;
+            left: -12vmin;
+            right: -12vmin;
+            top: -12vmin;
+            bottom: -12vmin;
+            pointer-events: none;
+            background-color: var(--wma-frame-base);
+            background-image: var(--wma-frame-overlay), var(--wma-frame-radial), var(--wma-frame-img);
+            background-size: cover, cover, cover;
+            background-position: center, center, center top;
+            background-repeat: no-repeat;
+            filter: blur(var(--wma-frame-blur));
+            -webkit-filter: blur(var(--wma-frame-blur));
+            will-change: transform;
+            animation: wma-frame-bg-drift 85s ease-in-out infinite alternate;
+        }
+
+        #allrecords.t-records {
+            position: relative;
+            z-index: 1;
+            background: transparent;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body.t-body::before {
+                animation: none;
+                transform: none;
+            }
+        }
+    </style>
     <style id="wma-hide-istqb-section">
         #rec787588995,
         #rec791592657,
@@ -271,11 +342,11 @@
         @keyframes wma-pw-accent-glow {
             0%,
             100% {
-                filter: drop-shadow(0 0 10px rgba(255, 11, 0, 0.4));
+                filter: drop-shadow(0 0 8px rgba(255, 11, 0, 0.2));
             }
 
             50% {
-                filter: drop-shadow(0 0 22px rgba(255, 11, 0, 0.65));
+                filter: drop-shadow(0 0 14px rgba(255, 11, 0, 0.32));
             }
         }
 
@@ -349,57 +420,74 @@
             transition-delay: 0.6s;
         }
 
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(1) .wma-pw__row .wma-pw__card:nth-child(4) {
+            transition-delay: 0.68s;
+        }
+
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__wave-label {
-            transition-delay: 0.72s;
+            transition-delay: 0.78s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(1) {
-            transition-delay: 0.82s;
+            transition-delay: 0.88s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(2) {
-            transition-delay: 0.9s;
+            transition-delay: 0.96s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(3) {
-            transition-delay: 0.98s;
+            transition-delay: 1.04s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(2) .wma-pw__row .wma-pw__card:nth-child(4) {
-            transition-delay: 1.06s;
+            transition-delay: 1.12s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__wave-label {
-            transition-delay: 1.16s;
+            transition-delay: 1.22s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(1) {
-            transition-delay: 1.26s;
+            transition-delay: 1.32s;
         }
 
         html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(2) {
-            transition-delay: 1.34s;
+            transition-delay: 1.4s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(3) {
+            transition-delay: 1.48s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(3) .wma-pw__row .wma-pw__card:nth-child(4) {
+            transition-delay: 1.56s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(4) .wma-pw__wave-label {
+            transition-delay: 1.66s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(4) .wma-pw__row .wma-pw__card:nth-child(1) {
+            transition-delay: 1.76s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(4) .wma-pw__row .wma-pw__card:nth-child(2) {
+            transition-delay: 1.84s;
+        }
+
+        html.wma-pw--js #productwellen.wma-pw--inview .wma-pw__wave:nth-of-type(4) .wma-pw__row .wma-pw__card:nth-child(3) {
+            transition-delay: 1.92s;
         }
 
         .wma-pw {
             position: relative;
             padding: 72px 24px 88px;
             font-family: 'Poppins', Arial, sans-serif;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
-            background:
-                radial-gradient(ellipse 75% 45% at 50% -15%, rgba(255, 11, 0, 0.12) 0%, transparent 52%),
-                radial-gradient(ellipse 50% 55% at 0% 40%, rgba(255, 11, 0, 0.08) 0%, transparent 45%),
-                radial-gradient(ellipse 50% 55% at 100% 40%, rgba(255, 11, 0, 0.08) 0%, transparent 45%),
-                radial-gradient(ellipse 60% 35% at 100% 100%, rgba(255, 11, 0, 0.08) 0%, transparent 50%),
-                repeating-linear-gradient(
-                    -12deg,
-                    transparent,
-                    transparent 48px,
-                    rgba(255, 255, 255, 0.012) 48px,
-                    rgba(255, 255, 255, 0.012) 49px
-                ),
-                #000000;
+            background-color: transparent;
+            background-image: none;
         }
 
         .wma-pw::after {
@@ -408,10 +496,10 @@
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            width: min(92%, 720px);
-            height: 160px;
+            width: min(100%, 900px);
+            height: 200px;
             border-radius: 50%;
-            background: radial-gradient(ellipse at center, rgba(255, 11, 0, 0.11) 0%, transparent 72%);
+            background: radial-gradient(ellipse at center, rgba(80, 18, 28, 0.12) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -501,14 +589,16 @@
             padding: 0.42em 1.5em 0.48em;
             border-radius: 999px;
             background:
-                linear-gradient(175deg, rgba(255, 11, 0, 0.22) 0%, rgba(0, 0, 0, 0.45) 100%) padding-box,
-                linear-gradient(135deg, rgba(255, 11, 0, 0.9) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 11, 0, 0.5) 100%) border-box;
-            border: 1px solid transparent;
+                linear-gradient(175deg, rgba(255, 80, 60, 0.18) 0%, rgba(40, 40, 40, 0.18) 100%) padding-box,
+                linear-gradient(135deg, rgba(255, 60, 40, 0.42) 0%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 50, 30, 0.28) 100%) border-box;
+            border: 1px solid rgba(255, 255, 255, 0.22);
             background-origin: padding-box, border-box;
             background-clip: padding-box, border-box;
             box-shadow:
-                0 0 32px rgba(255, 11, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+                0 0 20px rgba(255, 80, 60, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .wma-pw__sectitle-accent {
@@ -517,7 +607,7 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: #ffffff;
-            text-shadow: 0 0 28px rgba(255, 11, 0, 0.55);
+            text-shadow: 0 0 14px rgba(255, 90, 70, 0.28);
             animation: wma-pw-accent-glow 5s ease-in-out infinite;
         }
 
@@ -577,6 +667,85 @@
             max-width: 100%;
         }
 
+        .wma-pw__row--1 {
+            grid-template-columns: minmax(0, 1fr);
+            max-width: min(100%, 400px);
+        }
+
+        .wma-pw__row--stack {
+            grid-template-columns: minmax(0, 1fr);
+            max-width: 100%;
+            gap: 14px;
+        }
+
+        /* Kacheln: matter 3D-Look wie Referenz (dunkle Facetten, dezente Kanten) */
+        #productwellen .wma-pw__wave .wma-pw__card {
+            min-height: 0;
+            align-items: start;
+            align-content: start;
+            overflow: visible;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            background:
+                linear-gradient(128deg, rgba(255, 255, 255, 0.07) 0%, transparent 45%),
+                linear-gradient(168deg, #1c1c1c 0%, #101010 42%, #060606 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+                0 12px 32px rgba(0, 0, 0, 0.55);
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card::before {
+            width: 55%;
+            background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.1));
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card:hover {
+            border-color: rgba(255, 255, 255, 0.16);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.09),
+                0 18px 40px rgba(0, 0, 0, 0.58);
+            transform: translate3d(0, -2px, 0);
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-body {
+            padding: 10px 12px 14px 0;
+            justify-content: flex-start;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-title {
+            font-size: clamp(0.92rem, 1.45vw, 1.05rem);
+            margin-bottom: 6px;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-cat {
+            margin-bottom: 8px;
+            font-size: 9px;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-text {
+            font-size: 12.5px;
+            line-height: 1.45;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-num {
+            min-width: 40px;
+            min-height: 40px;
+            padding: 8px 10px;
+            font-size: 12px;
+            color: rgba(255, 70, 55, 0.95);
+            background: linear-gradient(165deg, #141414 0%, #0a0a0a 100%);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                2px 2px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        #productwellen .wma-pw__wave-label {
+            background: rgba(0, 0, 0, 0.4);
+            border-left-color: rgba(180, 45, 55, 0.95);
+            color: rgba(255, 255, 255, 0.82);
+        }
+
         @media (max-width: 1100px) {
             .wma-pw__row--4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -587,8 +756,10 @@
 
             .wma-pw__row--3,
             .wma-pw__row--4,
-            .wma-pw__row--2 {
+            .wma-pw__row--2,
+            .wma-pw__row--1 {
                 grid-template-columns: 1fr;
+                max-width: 100%;
             }
         }
 
@@ -717,7 +888,7 @@
 
             .wma-pw__sectitle-accent {
                 animation: none;
-                filter: drop-shadow(0 0 12px rgba(255, 11, 0, 0.45));
+                filter: drop-shadow(0 0 10px rgba(255, 80, 60, 0.32));
             }
 
             .wma-pw__sectitle::after {
@@ -731,6 +902,10 @@
 
             .wma-pw__card:hover {
                 box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+                transform: none;
+            }
+
+            #productwellen .wma-pw__wave .wma-pw__card:hover {
                 transform: none;
             }
         }
@@ -12436,7 +12611,7 @@
             <section id="productwellen" class="wma-pw" aria-labelledby="wma-pw-heading" lang="de">
                 <div class="wma-pw__inner">
                     <header class="wma-pw__head">
-                        <p class="wma-pw__eyebrow">9 App-Konzepte · 3 Entwicklungswellen</p>
+                        <p class="wma-pw__eyebrow">15 App-Konzepte · nach Branche</p>
                         <h2 id="wma-pw-heading" class="wma-pw__sectitle">
                             <span class="wma-pw__sectitle-line">Problemlösung für jeden Anwendungsfall</span>
                             <span class="wma-pw__sectitle-accent-wrap">
@@ -12445,98 +12620,141 @@
                         </h2>
                     </header>
                     <div class="wma-pw__wave">
-                        <p class="wma-pw__wave-label">Welle 1</p>
-                        <div class="wma-pw__row wma-pw__row--3">
+                        <p class="wma-pw__wave-label">Gesundheit, HR &amp; Wellness</p>
+                        <div class="wma-pw__row wma-pw__row--4">
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">01</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">Finance-Safe</h3>
-                                    <span class="wma-pw__card-cat">Finanzen</span>
-                                    <p class="wma-pw__card-text">Sparplan und Finanzkontrolle: mehr Überblick über Einnahmen
-                                        und Ausgaben und spürbare Unterstützung beim Sparen.</p>
+                                    <h3 class="wma-pw__card-title">HealthSpot</h3>
+                                    <span class="wma-pw__card-cat">Gesundheitswesen</span>
+                                    <p class="wma-pw__card-text">Fachärzte finden und Termine buchen ist oft umständlich. Die App bündelt Arztsuche, Online-Termine und sichere Gesundheitsakten.</p>
                                 </div>
                             </article>
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">02</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">FreerideParadise</h3>
-                                    <span class="wma-pw__card-cat">Wintersport</span>
-                                    <p class="wma-pw__card-text">Schneelage, Wetter und direkter Sprung in Webcams bekannter
-                                        Skigebiete, zuerst für die DACH-Region.</p>
+                                    <h3 class="wma-pw__card-title">HR Talent Pool</h3>
+                                    <span class="wma-pw__card-cat">HR / Recruiting</span>
+                                    <p class="wma-pw__card-text">Recruiting kostet Zeit und das Matching passt nicht immer. KI unterstützt Screening und ordnet Talente und Stellen zuverlässig zu.</p>
                                 </div>
                             </article>
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">03</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">Backup-Pilot</h3>
-                                    <span class="wma-pw__card-cat">Infrastruktur</span>
-                                    <p class="wma-pw__card-text">Zuverlässige Backup-Strategien und Datenhaltung, kontinuierlich
-                                        über die frühen Projektwellen hinweg ausgebaut.</p>
+                                    <h3 class="wma-pw__card-title">Wellness Digital</h3>
+                                    <span class="wma-pw__card-cat">Gesundheit / Fitness</span>
+                                    <p class="wma-pw__card-text">Daten von Wearables und Apps liegen verstreut. Ein Dashboard fasst alles zu einem Gesundheitsüberblick zusammen.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">04</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">DailyPulse</h3>
+                                    <span class="wma-pw__card-cat">Mental Wellness</span>
+                                    <p class="wma-pw__card-text">Stress und wenig einfache Hilfen für mentale Balance. Mood-Tracking, Meditationen und kurze Übungen für den Alltag.</p>
                                 </div>
                             </article>
                         </div>
                     </div>
                     <div class="wma-pw__wave">
-                        <p class="wma-pw__wave-label">Welle 2</p>
+                        <p class="wma-pw__wave-label">Logistik, Mobilität &amp; Nachhaltigkeit</p>
                         <div class="wma-pw__row wma-pw__row--4">
-                            <article class="wma-pw__card">
-                                <span class="wma-pw__card-num" aria-hidden="true">04</span>
-                                <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">MittelstandDigital</h3>
-                                    <span class="wma-pw__card-cat">KMU / Mittelstand</span>
-                                    <p class="wma-pw__card-text">All-in-One mit E-Rechnung (XRechnung), Buchhaltung, CRM und
-                                        Projektmanagement, ausgelegt auf deutsche Compliance (u. a. GoBD).</p>
-                                </div>
-                            </article>
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">05</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">HealthBridge</h3>
-                                    <span class="wma-pw__card-cat">Gesundheit</span>
-                                    <p class="wma-pw__card-text">Plattform für Patientendaten, Termine und Medikation mit
-                                        Echtzeitkommunikation zwischen Patienten, Ärztinnen und Ärzten sowie Pflegediensten.</p>
+                                    <h3 class="wma-pw__card-title">GlobalFlow</h3>
+                                    <span class="wma-pw__card-cat">Logistik / Supply Chain</span>
+                                    <p class="wma-pw__card-text">Lieferketten wirken undurchsichtig; manuelles Tracking bremst. Echtzeit-Tracking und Vorhersage für internationale Sendungen.</p>
                                 </div>
                             </article>
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">06</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">Marketingplaner</h3>
-                                    <span class="wma-pw__card-cat">Medien &amp; Kampagnen</span>
-                                    <p class="wma-pw__card-text">Zentrale Kampagnenplanung mit strukturierter Erstellung,
-                                        Creative-Workflow und kanalbezogenen KPIs.</p>
+                                    <h3 class="wma-pw__card-title">UrbanMove</h3>
+                                    <span class="wma-pw__card-cat">Mobilität / Verkehr</span>
+                                    <p class="wma-pw__card-text">Städtische Mobilität ist fragmentiert und Staus nehmen zu. Eine Oberfläche für ÖPNV, Ride-Sharing und Mikromobilität (MaaS).</p>
                                 </div>
                             </article>
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">07</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">ARchitect X-Ray</h3>
-                                    <span class="wma-pw__card-cat">Handwerk / PropTech</span>
-                                    <p class="wma-pw__card-text">AR-Einblendung von Leitungen auf die Wand: Kombination aus
-                                        Smartphone-LiDAR, digitalen Bauplänen und Wärmebild (z. B. FLIR).</p>
+                                    <h3 class="wma-pw__card-title">MyPlantCare</h3>
+                                    <span class="wma-pw__card-cat">Smart Home / IoT</span>
+                                    <p class="wma-pw__card-text">Pflanzen sterben oft durch falsche Pflege. Sensoren messen Boden und Licht und liefern automatische Pflegehinweise.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">08</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">GreenShopper</h3>
+                                    <span class="wma-pw__card-cat">Nachhaltigkeit / E-Commerce</span>
+                                    <p class="wma-pw__card-text">Nachhaltigkeit ist am Regal schwer erkennbar. Barcode-Scan für Eco-Scores und ethische Produktinfos.</p>
                                 </div>
                             </article>
                         </div>
                     </div>
                     <div class="wma-pw__wave">
-                        <p class="wma-pw__wave-label">Welle 3</p>
-                        <div class="wma-pw__row wma-pw__row--2">
-                            <article class="wma-pw__card">
-                                <span class="wma-pw__card-num" aria-hidden="true">08</span>
-                                <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">DailyEcho</h3>
-                                    <span class="wma-pw__card-cat">Persönliche Entwicklung</span>
-                                    <p class="wma-pw__card-text">Tägliche Reflexionsfragen und Sentiment-Analyse mit passenden
-                                        Mikroaktivitäten oder Inhalten, z. B. Atemübung bei Stress.</p>
-                                </div>
-                            </article>
+                        <p class="wma-pw__wave-label">Food, Events &amp; Bildung</p>
+                        <div class="wma-pw__row wma-pw__row--4">
                             <article class="wma-pw__card">
                                 <span class="wma-pw__card-num" aria-hidden="true">09</span>
                                 <div class="wma-pw__card-body">
-                                    <h3 class="wma-pw__card-title">Skillmapping</h3>
-                                    <span class="wma-pw__card-cat">Kompetenzkompass · HR</span>
-                                    <p class="wma-pw__card-text">Die KI extrahiert Fähigkeiten aus Lebensläufen und
-                                        Projektlogs, pflegt eine dynamische Skill-Datenbank und ordnet interne Kandidaten den
-                                        passenden Rollen zu.</p>
+                                    <h3 class="wma-pw__card-title">FreshFood Workspace</h3>
+                                    <span class="wma-pw__card-cat">Food / Corporate Wellness</span>
+                                    <p class="wma-pw__card-text">Frische Mahlzeiten fehlen oft am Arbeitsplatz. Vending und Lieferung bringen gesundes Essen per Abo ins Büro.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">10</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">EventGuide</h3>
+                                    <span class="wma-pw__card-cat">Events / Tourismus</span>
+                                    <p class="wma-pw__card-text">Zu viele Events, nichts passt wirklich. Personalisierte Empfehlungen für Kultur, Sport und Soziales.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">11</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">LMS (Academy)</h3>
+                                    <span class="wma-pw__card-cat">Bildung / LMS</span>
+                                    <p class="wma-pw__card-text">Klassische Schulungen wirken veraltet und binden kaum. Mobile Lernmodule mit Gamification und Fortschrittsanzeige.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">12</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">Milestone &amp; Go</h3>
+                                    <span class="wma-pw__card-cat">Projektmanagement</span>
+                                    <p class="wma-pw__card-text">Meilensteine gehen in Remote-Teams verloren. PM mit klaren Meilensteinen und fristgetriebenen Aufgaben.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="wma-pw__wave">
+                        <p class="wma-pw__wave-label">Marketing, Finanzen &amp; Reisen</p>
+                        <div class="wma-pw__row wma-pw__row--4">
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">13</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">Marketing Master</h3>
+                                    <span class="wma-pw__card-cat">Marketing / SaaS</span>
+                                    <p class="wma-pw__card-text">Viele Kanäle überfordern kleine Teams. Ein Dashboard für Planung, Termine und Analytics.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">14</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">WealthBridge</h3>
+                                    <span class="wma-pw__card-cat">Finanzen / FinTech</span>
+                                    <p class="wma-pw__card-text">Investieren wirkt komplex und Finanzwissen fehlt oft. Fractional Investing plus finanzielle Bildung.</p>
+                                </div>
+                            </article>
+                            <article class="wma-pw__card">
+                                <span class="wma-pw__card-num" aria-hidden="true">15</span>
+                                <div class="wma-pw__card-body">
+                                    <h3 class="wma-pw__card-title">Travel Buddy</h3>
+                                    <span class="wma-pw__card-cat">Reisen / Social</span>
+                                    <p class="wma-pw__card-text">Gruppenreisen planen ist chaotisch. Gemeinsame Routen, Buchungen und Kostenteilung in Echtzeit.</p>
                                 </div>
                             </article>
                         </div>
