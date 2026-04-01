@@ -43,6 +43,7 @@
         <link rel="stylesheet" href="css/tilda-popup-1.1.min.css" type="text/css" media="all" />
     </noscript>
     <link rel="stylesheet" href="css/tilda-forms-1.0.min.css" type="text/css" media="all" onerror="this.loaderr='y';" />
+    <link rel="stylesheet" href="css/wma-forms-global.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/tilda-slds-1.4.min.css" type="text/css" media="print" onload="this.media='all';"
         onerror="this.loaderr='y';" /> <noscript>
         <link rel="stylesheet" href="css/tilda-slds-1.4.min.css" type="text/css" media="all" />
@@ -179,101 +180,6 @@
                 document.addEventListener('DOMContentLoaded', t_setvisRecs);
             }
         })();</script>
-    <style id="wma-form-popup-fix">
-        #rec793356595 input::-webkit-credentials-auto-fill-button,
-        #rec793356595 input::-webkit-contacts-auto-fill-button,
-        #rec793356595 input::-webkit-strong-password-auto-fill-button,
-        #rec803487912 input::-webkit-credentials-auto-fill-button,
-        #rec803487912 input::-webkit-contacts-auto-fill-button,
-        #rec803487912 input::-webkit-strong-password-auto-fill-button,
-        #rec793366467 input::-webkit-credentials-auto-fill-button,
-        #rec793366467 input::-webkit-contacts-auto-fill-button,
-        #rec793366467 input::-webkit-strong-password-auto-fill-button,
-        #rec803490984 input::-webkit-credentials-auto-fill-button,
-        #rec803490984 input::-webkit-contacts-auto-fill-button,
-        #rec803490984 input::-webkit-strong-password-auto-fill-button,
-        #rec793367094 input::-webkit-credentials-auto-fill-button,
-        #rec793367094 input::-webkit-contacts-auto-fill-button,
-        #rec793367094 input::-webkit-strong-password-auto-fill-button,
-        #rec803491844 input::-webkit-credentials-auto-fill-button,
-        #rec803491844 input::-webkit-contacts-auto-fill-button,
-        #rec803491844 input::-webkit-strong-password-auto-fill-button,
-        #rec802365132 input::-webkit-credentials-auto-fill-button,
-        #rec802365132 input::-webkit-contacts-auto-fill-button,
-        #rec802365132 input::-webkit-strong-password-auto-fill-button,
-        #rec803492750 input::-webkit-credentials-auto-fill-button,
-        #rec803492750 input::-webkit-contacts-auto-fill-button,
-        #rec803492750 input::-webkit-strong-password-auto-fill-button {
-            display: none !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            width: 0 !important;
-            height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            opacity: 0 !important;
-        }
-
-        #rec793356595 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec793356595 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec803487912 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec803487912 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec793366467 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec793366467 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec803490984 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec803490984 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec793367094 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec793367094 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec803491844 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec803491844 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec802365132 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec802365132 .t702 textarea::-webkit-textfield-decoration-container,
-        #rec803492750 .t702 input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        #rec803492750 .t702 textarea::-webkit-textfield-decoration-container {
-            display: none !important;
-        }
-
-        #rec793356595 .t-checkbox__indicator,
-        #rec803487912 .t-checkbox__indicator,
-        #rec793366467 .t-checkbox__indicator,
-        #rec803490984 .t-checkbox__indicator,
-        #rec793367094 .t-checkbox__indicator,
-        #rec803491844 .t-checkbox__indicator,
-        #rec802365132 .t-checkbox__indicator,
-        #rec803492750 .t-checkbox__indicator {
-            background-color: transparent !important;
-        }
-
-        /* T702-Popups: Safari/Chrome-Autofill-Dekoration komplett aus (unabhängig von #rec) */
-        .t702 input::-webkit-credentials-auto-fill-button,
-        .t702 input::-webkit-contacts-auto-fill-button,
-        .t702 input::-webkit-strong-password-auto-fill-button {
-            display: none !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            width: 0 !important;
-            height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            opacity: 0 !important;
-        }
-
-        .t702 input.t-input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
-        .t702 textarea.t-input::-webkit-textfield-decoration-container {
-            display: none !important;
-        }
-
-        .t702 .t-input-block:has(> input.t-input),
-        .t702 .t-input-block:has(> textarea.t-input) {
-            overflow: hidden;
-        }
-
-        .t702 input.t-input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
-        .t702 textarea.t-input {
-            -webkit-appearance: none !important;
-            appearance: none !important;
-        }
-    </style>
     <style id="wma-yt-lite-css">
         .wma-yt-lite {
             position: relative;

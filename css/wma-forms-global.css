@@ -1,0 +1,200 @@
+/**
+ * WAMOCON: Beratungs-/Kontaktformulare (Zero Block + T702-Popups)
+ * - Dekorative „Pfeil“-Grafiken (group_11) neben Formularfeldern ausblenden
+ * - WebKit-Autofill-/Kontakt-Icons unterdrücken
+ * - Eingabefelder etwas breiter, einheitlich, ohne „Ziehen“ in der Höhe
+ */
+
+/* --- T702-Popups: Autofill & Innendekoration (Chrome/Safari) --- */
+.t702 input::-webkit-credentials-auto-fill-button,
+.t702 input::-webkit-contacts-auto-fill-button,
+.t702 input::-webkit-strong-password-auto-fill-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+}
+
+.t702 input.t-input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
+.t702 textarea.t-input::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+
+.t702 .t-input-block:has(> input.t-input),
+.t702 .t-input-block:has(> textarea.t-input) {
+    overflow: hidden;
+}
+
+.t702 input.t-input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+.t702 textarea.t-input {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+#allrecords .t702 .t-checkbox__indicator {
+    background-color: transparent !important;
+}
+
+/* --- Alle Tilda-Formulare: gleiche WebKit-Fixes wie im Popup --- */
+#allrecords .t-form input::-webkit-credentials-auto-fill-button,
+#allrecords .t-form input::-webkit-contacts-auto-fill-button,
+#allrecords .t-form input::-webkit-strong-password-auto-fill-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+}
+
+#allrecords .t-form input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"])::-webkit-textfield-decoration-container,
+#allrecords .t-form textarea::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+
+#allrecords .t-form .t-input-block:has(> input.t-input),
+#allrecords .t-form .t-input-block:has(> textarea.t-input) {
+    overflow: hidden;
+}
+
+#allrecords .t-form input.t-input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+#allrecords .t-form textarea.t-input {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+/* ANNEXX skewed slide: Innen-Layer entfernen (mittlere Fläche + schwarzer Hover-Text).
+   Sonst bleibt u. a. auf EN-Seiten „Send request“ in Schwarz neben dem roten Button sichtbar. */
+#allrecords .t-form .t-submit[class*="skewed_slide"] {
+    overflow: hidden !important;
+}
+
+#allrecords .t-form .t-submit[class*="skewed_slide"] > div:nth-child(2),
+#allrecords .t-form .t-submit[class*="skewed_slide"] > div:nth-child(3) {
+    display: none !important;
+}
+
+/* --- Zero-Block-Formulare: Dekor-Grafiken (group_11) nur im Formular-Artboard --- */
+#allrecords .t396__artboard:has(.tn-atom__form) .tn-elem[data-elem-type="image"]:has(img[src*="group_11"]),
+#allrecords .t396__artboard:has(.tn-atom__form) .tn-elem[data-elem-type="image"]:has(img[data-original*="group_11"]) {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+}
+
+/* --- Zero-Block: einheitliche Feldoptik & etwas mehr Breite (max. ~520px) --- */
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input {
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group {
+    margin-bottom: 14px !important;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_nm .t-input-block,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_ph .t-input-block,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_em .t-input-block {
+    width: 100% !important;
+    max-width: min(100%, 520px);
+    box-sizing: border-box;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_nm .t-input,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_ph .t-input,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_em .t-input {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 48px;
+    height: auto !important;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_cb .t-input-block {
+    width: 100% !important;
+    max-width: min(100%, 520px);
+    box-sizing: border-box;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form input::placeholder,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form textarea::placeholder {
+    color: #8a8a8a;
+    opacity: 1;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form input::-webkit-input-placeholder,
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form textarea::-webkit-input-placeholder {
+    color: #8a8a8a;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-form__submit {
+    margin-top: 22px !important;
+    position: relative;
+    z-index: 3;
+    text-align: left;
+}
+
+#allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-submit {
+    width: auto !important;
+    min-width: 0;
+    max-width: 260px;
+    padding-left: 28px;
+    padding-right: 28px;
+    height: 44px;
+    line-height: 44px;
+    box-sizing: border-box;
+    border-radius: 50px !important;
+}
+
+/* T702-Popup: Felder nutzen Popup-Breite, gleiche Mindesthöhe */
+#allrecords .t702 .t-form .t-input-group_nm .t-input-block,
+#allrecords .t702 .t-form .t-input-group_ph .t-input-block,
+#allrecords .t702 .t-form .t-input-group_em .t-input-block {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#allrecords .t702 .t-form .t-input-group_nm .t-input,
+#allrecords .t702 .t-form .t-input-group_ph .t-input,
+#allrecords .t702 .t-form .t-input-group_em .t-input {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 48px;
+    height: auto !important;
+}
+
+#allrecords .t702 .t-form .t-form__submit {
+    margin-top: 18px !important;
+}
+
+#allrecords .t702 .t-form .t-submit {
+    max-width: min(260px, 100%);
+    border-radius: 50px !important;
+}
+
+@media screen and (max-width: 479px) {
+    #allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_nm .t-input-block,
+    #allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_ph .t-input-block,
+    #allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-input-group_em .t-input-block {
+        max-width: 100% !important;
+    }
+
+    #allrecords .t396__artboard:has(.tn-atom__form) .t-form .t-submit {
+        max-width: min(260px, 100%) !important;
+    }
+}
