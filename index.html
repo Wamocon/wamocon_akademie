@@ -635,18 +635,19 @@
         }
 
         #productwellen .wma-pw__inner {
-            max-width: 1230px;
-            padding-left: 10px;
-            padding-right: 10px;
+            max-width: 1280px;
+            padding-left: 12px;
+            padding-right: 12px;
         }
 
         #productwellen .wma-pw__row {
-            gap: 15px;
+            gap: 18px;
         }
 
-        #productwellen .wma-pw__card {
-            column-gap: 17px;
-            padding: 0 18px 0 0;
+        #productwellen .wma-pw__row > .wma-pw__card {
+            overflow: visible !important;
+            column-gap: 14px;
+            padding: 0 20px 0 0;
             min-height: 298px;
         }
 
@@ -656,6 +657,9 @@
 
         #productwellen .wma-pw__card-body {
             padding: 28px 0 32px 0;
+            min-width: 0;
+            max-width: 100%;
+            overflow: visible;
         }
 
         #productwellen .wma-pw__eyebrow {
@@ -676,8 +680,17 @@
         }
 
         #productwellen .wma-pw__card-title {
-            font-size: clamp(1.2rem, 2.38vw, 1.56rem);
             margin-bottom: 11px;
+            max-width: 100%;
+            font-size: clamp(1.05rem, 2vw, 1.42rem);
+            line-height: 1.3;
+            letter-spacing: -0.025em;
+            white-space: normal;
+            overflow: visible;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
+            hyphens: none;
         }
 
         #productwellen .wma-pw__card-cat {
@@ -686,18 +699,21 @@
         }
 
         #productwellen .wma-pw__card-text {
+            max-width: 100%;
             font-size: clamp(16px, 1.48vw, 18px);
             line-height: 1.5;
+            hyphens: none;
+            -webkit-hyphens: none;
         }
 
         #productwellen .wma-pw__wave .wma-pw__card-num {
-            min-width: 56px;
-            min-height: 52px;
-            padding: 12px 14px;
-            font-size: 16px;
+            min-width: 50px;
+            min-height: 50px;
+            padding: 11px 12px;
+            font-size: 15px;
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1320px) {
             .wma-pw__row--4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -794,8 +810,9 @@
             font-weight: 700;
             line-height: 1.28;
             color: #ffffff;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            /* Kein Umbruch mitten im Wort (z. B. „WealthBridge“) – nur an Leerzeichen/Trennzeichen */
+            word-wrap: normal;
+            overflow-wrap: normal;
             hyphens: none;
             word-break: normal;
         }
