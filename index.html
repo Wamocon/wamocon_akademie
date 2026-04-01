@@ -413,16 +413,16 @@
         .wma-pw__inner {
             position: relative;
             z-index: 1;
-            max-width: 1120px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 8px;
+            padding: 0 20px;
         }
 
         .wma-pw__eyebrow {
             margin: 0 0 18px;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 0.28em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.45);
         }
@@ -538,13 +538,13 @@
 
         .wma-pw__wave-label {
             margin: 0 0 18px;
-            padding: 6px 14px 6px 14px;
+            padding: 7px 16px 7px 14px;
             display: inline-block;
             border-left: 3px solid #ff0b00;
             border-radius: 0 6px 6px 0;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            letter-spacing: 0.22em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             text-align: left;
             color: rgba(255, 255, 255, 0.88);
@@ -553,7 +553,7 @@
 
         .wma-pw__row {
             display: grid;
-            gap: 18px;
+            gap: 22px;
         }
 
         .wma-pw__row > .wma-pw__card {
@@ -586,7 +586,7 @@
 
         /* Kacheln: matter 3D-Look wie Referenz (dunkle Facetten, dezente Kanten) */
         #productwellen .wma-pw__wave .wma-pw__card {
-            min-height: 0;
+            min-height: 276px;
             align-items: start;
             align-content: start;
             overflow: visible;
@@ -613,31 +613,7 @@
             transform: translate3d(0, -2px, 0);
         }
 
-        #productwellen .wma-pw__wave .wma-pw__card-body {
-            padding: 10px 12px 14px 0;
-            justify-content: flex-start;
-        }
-
-        #productwellen .wma-pw__wave .wma-pw__card-title {
-            font-size: clamp(0.92rem, 1.45vw, 1.05rem);
-            margin-bottom: 6px;
-        }
-
-        #productwellen .wma-pw__wave .wma-pw__card-cat {
-            margin-bottom: 8px;
-            font-size: 9px;
-        }
-
-        #productwellen .wma-pw__wave .wma-pw__card-text {
-            font-size: 12.5px;
-            line-height: 1.45;
-        }
-
         #productwellen .wma-pw__wave .wma-pw__card-num {
-            min-width: 40px;
-            min-height: 40px;
-            padding: 8px 10px;
-            font-size: 12px;
             color: rgba(255, 70, 55, 0.95);
             background: linear-gradient(165deg, #141414 0%, #0a0a0a 100%);
             border-color: rgba(255, 255, 255, 0.1);
@@ -650,6 +626,75 @@
             background: rgba(0, 0, 0, 0.4);
             border-left-color: rgba(180, 45, 55, 0.95);
             color: rgba(255, 255, 255, 0.82);
+        }
+
+        /* App-Sektion: mehr nutzbare Breite im Frame + etwas größere Kacheln/Typo */
+        #productwellen.wma-pw {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        #productwellen .wma-pw__inner {
+            max-width: 1230px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #productwellen .wma-pw__row {
+            gap: 15px;
+        }
+
+        #productwellen .wma-pw__card {
+            column-gap: 17px;
+            padding: 0 18px 0 0;
+            min-height: 298px;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card {
+            min-height: 298px;
+        }
+
+        #productwellen .wma-pw__card-body {
+            padding: 28px 0 32px 0;
+        }
+
+        #productwellen .wma-pw__eyebrow {
+            font-size: 14px;
+        }
+
+        #productwellen .wma-pw__sectitle {
+            font-size: clamp(1.32rem, 3.1vw, 2.12rem);
+        }
+
+        #productwellen .wma-pw__sectitle-accent {
+            font-size: clamp(1.04rem, 2.3vw, 1.4rem);
+        }
+
+        #productwellen .wma-pw__wave-label {
+            font-size: 14px;
+            padding: 8px 17px 8px 15px;
+        }
+
+        #productwellen .wma-pw__card-title {
+            font-size: clamp(1.2rem, 2.38vw, 1.56rem);
+            margin-bottom: 11px;
+        }
+
+        #productwellen .wma-pw__card-cat {
+            font-size: 13px;
+            margin-bottom: 13px;
+        }
+
+        #productwellen .wma-pw__card-text {
+            font-size: clamp(16px, 1.48vw, 18px);
+            line-height: 1.5;
+        }
+
+        #productwellen .wma-pw__wave .wma-pw__card-num {
+            min-width: 56px;
+            min-height: 52px;
+            padding: 12px 14px;
+            font-size: 16px;
         }
 
         @media (max-width: 1100px) {
@@ -674,9 +719,9 @@
             display: grid;
             grid-template-columns: auto minmax(0, 1fr);
             align-items: stretch;
-            column-gap: 16px;
-            min-height: 220px;
-            padding: 0 20px 0 0;
+            column-gap: 20px;
+            min-height: 276px;
+            padding: 0 24px 0 0;
             overflow: hidden;
             border-radius: 6px;
             text-align: left;
@@ -721,10 +766,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 48px;
-            min-height: 46px;
-            padding: 10px 12px;
-            font-size: 14px;
+            min-width: 52px;
+            min-height: 50px;
+            padding: 11px 13px;
+            font-size: 15px;
             font-weight: 800;
             font-variant-numeric: tabular-nums;
             line-height: 1;
@@ -739,13 +784,13 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 22px 0 26px 0;
+            padding: 26px 0 30px 0;
             min-width: 0;
         }
 
         .wma-pw__card-title {
             margin: 0 0 10px;
-            font-size: clamp(1.05rem, 2vw, 1.22rem);
+            font-size: clamp(1.15rem, 2.25vw, 1.48rem);
             font-weight: 700;
             line-height: 1.28;
             color: #ffffff;
@@ -758,10 +803,10 @@
         .wma-pw__card-cat {
             display: inline-block;
             margin: 0 0 12px;
-            padding: 0.35em 0.7em;
-            font-size: 10px;
+            padding: 0.42em 0.78em;
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.13em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.75);
             border-radius: 999px;
@@ -771,10 +816,10 @@
 
         .wma-pw__card-text {
             margin: 0;
-            font-size: 14px;
-            line-height: 1.65;
-            color: rgba(255, 255, 255, 0.68);
-            font-weight: 400;
+            font-size: clamp(15px, 1.35vw, 17px);
+            line-height: 1.52;
+            color: rgba(255, 255, 255, 0.78);
+            font-weight: 300;
             font-family: 'Poppins', Arial, Helvetica, sans-serif;
             word-wrap: break-word;
             overflow-wrap: break-word;
